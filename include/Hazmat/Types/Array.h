@@ -31,30 +31,35 @@ private:
 };
 
 template <size_t DIM, typename T>
+inline
 Array<DIM, T>::Array()
 {
     memset(mComponents, 0, ByteCount);
 }
 
 template <size_t DIM, typename T>
+inline
 Array<DIM, T>::Array<DIM, T>::Array(const Array<DIM, T>& a)
 {
     memcpy(mComponents, a.bytes(), ByteCount);
 }
 
 template <size_t DIM, typename T>
+inline
 T* Array<DIM, T>::bytes()
 {
     return &mComponents[0];
 }
 
 template <size_t DIM, typename T>
+inline
 const T* Array<DIM, T>::bytes() const
 {
     return &mComponents[0];
 }
 
 template <size_t DIM, typename T>
+inline
 T Array<DIM, T>::operator[] (size_t i) const
 {
     // TODO: Debug error checking...
@@ -62,6 +67,7 @@ T Array<DIM, T>::operator[] (size_t i) const
 }
 
 template <size_t DIM, typename T>
+inline
 T& Array<DIM, T>::operator[] (size_t i)
 {
     // TODO: Debug error checking...
@@ -69,6 +75,7 @@ T& Array<DIM, T>::operator[] (size_t i)
 }
 
 template <size_t DIM, typename T>
+inline
 Array<DIM, T>& Array<DIM, T>::operator= (const Array<DIM, T>& a)
 {
     if (this != &a)
