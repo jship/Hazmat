@@ -6,14 +6,8 @@
 namespace Hazmat
 {
 
-template <typename T>
-class Vector2 : public Array<2, T> { };
-
-template <typename T>
-class Vector3 : public Array<3, T> { };
-
-template <typename T>
-class Vector4 : public Array<4, T> { };
+template <size_t DIM, typename T>
+class Vector : public Array<DIM, T> { };
 
 }
 

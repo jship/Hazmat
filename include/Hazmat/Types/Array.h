@@ -21,10 +21,10 @@ public:
     T  operator[] (size_t i) const;
     T& operator[] (size_t i);
     
-    Array<DIM, T>& operator= (const Array<DIM, T>& a);
+    Array<DIM, T>& operator=(const Array<DIM, T>& a);
 
-    static const size_t Dimensions = DIM;
-    static const size_t ByteCount  = DIM * sizeof(T);
+    static const size_t dimensions = DIM;
+    static const size_t byteCount  = DIM * sizeof(T);
 
 private:
     T mComponents[DIM];
@@ -34,14 +34,14 @@ template <size_t DIM, typename T>
 inline
 Array<DIM, T>::Array()
 {
-    memset(mComponents, 0, ByteCount);
+    memset(mComponents, 0, byteCount);
 }
 
 template <size_t DIM, typename T>
 inline
 Array<DIM, T>::Array<DIM, T>::Array(const Array<DIM, T>& a)
 {
-    memcpy(mComponents, a.bytes(), ByteCount);
+    memcpy(mComponents, a.bytes(), byteCount);
 }
 
 template <size_t DIM, typename T>
@@ -76,10 +76,10 @@ T& Array<DIM, T>::operator[] (size_t i)
 
 template <size_t DIM, typename T>
 inline
-Array<DIM, T>& Array<DIM, T>::operator= (const Array<DIM, T>& a)
+Array<DIM, T>& Array<DIM, T>::operator=(const Array<DIM, T>& a)
 {
     if (this != &a)
-        memcpy(mComponents, a.bytes(), ByteCount);
+        memcpy(mComponents, a.bytes(), byteCount);
 
     return *this;
 }
