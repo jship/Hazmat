@@ -13,6 +13,7 @@ FIND_PATH(TUT_INC_DIR tut.h
     $ENV{TUT_ROOT}
     ~/ThirdParty
     ~/Library/Frameworks
+    C:/ThirdParty
     /Library/Frameworks
     /usr/local/
     /usr/

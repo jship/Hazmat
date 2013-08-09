@@ -18,8 +18,8 @@ public:
     T* bytes();
     const T* bytes() const;
 
-    T  operator[] (size_t i) const;
-    T& operator[] (size_t i);
+    T  operator[](size_t i) const;
+    T& operator[](size_t i);
     
     Array<DIM, T>& operator=(const Array<DIM, T>& a);
 
@@ -39,7 +39,7 @@ Array<DIM, T>::Array()
 
 template <size_t DIM, typename T>
 inline
-Array<DIM, T>::Array<DIM, T>::Array(const Array<DIM, T>& a)
+Array<DIM, T>::Array(const Array<DIM, T>& a)
 {
     memcpy(mComponents, a.bytes(), byteCount);
 }
@@ -60,7 +60,7 @@ const T* Array<DIM, T>::bytes() const
 
 template <size_t DIM, typename T>
 inline
-T Array<DIM, T>::operator[] (size_t i) const
+T Array<DIM, T>::operator[](size_t i) const
 {
     // TODO: Debug error checking...
     return mComponents[i];
@@ -68,7 +68,7 @@ T Array<DIM, T>::operator[] (size_t i) const
 
 template <size_t DIM, typename T>
 inline
-T& Array<DIM, T>::operator[] (size_t i)
+T& Array<DIM, T>::operator[](size_t i)
 {
     // TODO: Debug error checking...
     return mComponents[i];

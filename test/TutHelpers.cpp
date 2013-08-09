@@ -1,19 +1,20 @@
 #include "TutHelpers.h"
 
+#include <cstring>
 #include <sstream>
 
 const char* TutHelpers::stripFileName(const char* fullFileName)
 {
-    int length = strlen(fullFileName);
+    int length = std::strlen(fullFileName);
     
     fullFileName += (length - 1);
-    while (*fullFileName != '/')
+    while (*fullFileName != '/' && *fullFileName != '\\')
     {
         fullFileName--;
     }
     
     fullFileName++;
-    
+
     return fullFileName;
 }
 

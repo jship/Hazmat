@@ -14,6 +14,9 @@ struct TestData
 
 DEFINE_TEST_TYPES(TestData);
 
+namespace tut
+{
+
 template <>
 template <>
 void TestRegistry::test<1>()
@@ -57,7 +60,7 @@ void TestRegistry::test<1>()
     DOUBLES_EQUAL(23.5, 23.5000001, 0.000001);
     DOUBLES_EQUAL(23.5, 23.4999999, 0.000001);
     
-    DOUBLES_EQUAL(15.3f, 15.30001f, 0.000001f);
+    DOUBLES_EQUAL(15.3f, 15.300001f, 0.000001f);
 }
 
 template <>
@@ -65,4 +68,6 @@ template <>
 void TestRegistry::test<2>()
 {
     return;
+}
+
 }
