@@ -1,14 +1,13 @@
-#ifndef HAZMAT_VECTOR_H
-#define HAZMAT_VECTOR_H
+#ifndef HAZMAT_TYPES_VECTOR_H
+#define HAZMAT_TYPES_VECTOR_H
 
 #include <Hazmat/Types/Array.h>
 
-namespace Hazmat
-{
+BEGIN_HAZMAT_NAMESPACE
 
 template <size_t DIM, typename T>
 class Vector : public Array<DIM, T> { };
 
-}
+END_HAZMAT_NAMESPACE
 
 #endif

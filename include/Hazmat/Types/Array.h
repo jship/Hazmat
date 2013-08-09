@@ -1,10 +1,11 @@
-#ifndef HAZMAT_ARRAY_H
-#define HAZMAT_ARRAY_H
+#ifndef HAZMAT_TYPES_ARRAY_H
+#define HAZMAT_TYPES_ARRAY_H
+
+#include <Hazmat/Common.h>
 
 #include <cstring>
 
-namespace Hazmat
-{
+BEGIN_HAZMAT_NAMESPACE
 
 template <size_t DIM, typename T>
 class Array
@@ -84,6 +85,6 @@ Array<DIM, T>& Array<DIM, T>::operator=(const Array<DIM, T>& a)
     return *this;
 }
 
-}
+END_HAZMAT_NAMESPACE
 
 #endif
