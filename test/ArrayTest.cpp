@@ -65,20 +65,31 @@ void TestRegistry::test<1>()
     float dot = jship::Hazmat::Dot(vec3fArray[1], vec3fArray[2]);
     DOUBLES_EQUAL(dot, 6.0f, 0.00001f);
 
-    Vec3f u, v, w;
+    Vec4f u, v, w;
     u[0] = 1.0f;  v[0] = 0.0f;
     u[1] = 0.0f;  v[1] = 1.0f;
     u[2] = 0.0f;  v[2] = 0.0f;
+
+    w[3] = 5.0f;
+    DOUBLES_EQUAL(w[3], 5.0f, 0.000001f);
 
     jship::Hazmat::Cross(u, v, w);
     DOUBLES_EQUAL(w[0], 0.0f, 0.000001f);
     DOUBLES_EQUAL(w[1], 0.0f, 0.000001f);
     DOUBLES_EQUAL(w[2], 1.0f, 0.000001f);
+    DOUBLES_EQUAL(w[3], 0.0f, 0.000001f);
     
+
     jship::Hazmat::Cross(u, v, w);
     DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[0], 0.0f, 0.000001f);
     DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[1], 0.0f, 0.000001f);
     DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[2], 1.0f, 0.000001f);
+
+    Vec2f a;
+    a[0] = 3.0f;
+    a[1] = 4.0f;
+    DOUBLES_EQUAL(jship::Hazmat::SquaredLength(a), 25.0f, 0.000001f);
+    DOUBLES_EQUAL(jship::Hazmat::Length(a), 5.0f, 0.000001f);
 }
 
 template <>

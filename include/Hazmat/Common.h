@@ -1,6 +1,8 @@
 #ifndef HAZMAT_COMMON_H
 #define HAZMAT_COMMON_H
 
+#include <cmath>
+
 #define BEGIN_HAZMAT_NAMESPACE namespace jship { namespace Hazmat {
 #define END_HAZMAT_NAMESPACE } }
 

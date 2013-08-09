@@ -11,8 +11,8 @@ namespace Priv
 template <size_t DIM, typename T>
 class Cross;
 
-// Cross is only defined for 3D vectors (and this lib is not concerned
-// with 7D!)
+// Cross is mathematically only defined for 3D vectors
+// (and this lib is not concerned with 7D!).
 template <typename T>
 class Cross<3, T>
 {
@@ -24,6 +24,24 @@ public:
         w[X] = u[Y] * v[Z] - u[Z] * v[Y];
         w[Y] = u[Z] * v[X] - u[X] * v[Z];
         w[Z] = u[X] * v[Y] - u[Y] * v[X];
+        return w;
+    }
+};
+
+// 4D defined for convenience. Note that w's fourth
+// component is set to 0.
+template <typename T>
+class Cross<4, T>
+{
+public:
+    static Vector<4, T>& compute(const Vector<4, T>& u,
+                                 const Vector<4, T>& v,
+                                       Vector<4, T>& w)
+    {
+        w[X] = u[Y] * v[Z] - u[Z] * v[Y];
+        w[Y] = u[Z] * v[X] - u[X] * v[Z];
+        w[Z] = u[X] * v[Y] - u[Y] * v[X];
+        w[W] = T();
         return w;
     }
 };
