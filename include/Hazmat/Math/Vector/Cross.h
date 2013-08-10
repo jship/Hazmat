@@ -1,5 +1,5 @@
-#ifndef HAZMAT_MATH_CROSS_H
-#define HAZMAT_MATH_CROSS_H
+#ifndef HAZMAT_MATH_VECTOR_CROSS_H
+#define HAZMAT_MATH_VECTOR_CROSS_H
 
 #include <Hazmat/Types/Vector.h>
 

@@ -1,7 +1,7 @@
-#ifndef HAZMAT_MATH_LENGTH_H
-#define HAZMAT_MATH_LENGTH_H
+#ifndef HAZMAT_MATH_VECTOR_LENGTH_H
+#define HAZMAT_MATH_VECTOR_LENGTH_H
 
-#include <Hazmat/Math/SquaredLength.h>
+#include <Hazmat/Math/Vector/SquaredLength.h>
 
 BEGIN_HAZMAT_NAMESPACE
 

@@ -1,5 +1,5 @@
-#ifndef HAZMAT_MATH_DOT_H
-#define HAZMAT_MATH_DOT_H
+#ifndef HAZMAT_MATH_VECTOR_DOT_H
+#define HAZMAT_MATH_VECTOR_DOT_H
 
 #include <Hazmat/Types/Vector.h>
 
