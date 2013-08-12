@@ -1,7 +1,7 @@
 # Finds TUT directory.
 # TUT is the Template Unit Test framework.
 # It is a header-only library.
-#
+
 # This will define the following:
 # TUT_FOUND
 # TUT_INCLUDE_DIR
