@@ -21,7 +21,7 @@ class Dot<2, T>
 public:
     static T compute(const Vector<2, T>& u, const Vector<2, T>& v)
     {
-        return u[0] * v[0] + u[1] * v[1];
+        return u[X] * v[X] + u[Y] * v[Y];
     }
 };
 
@@ -31,7 +31,7 @@ class Dot<3, T>
 public:
     static T compute(const Vector<3, T>& u, const Vector<3, T>& v)
     {
-        return u[0] * v[0] + u[1] * v[1] + u[2] * v[2];
+        return u[X] * v[X] + u[Y] * v[Y] + u[Z] * v[Z];
     }
 };
 
@@ -41,7 +41,7 @@ class Dot<4, T>
 public:
     static T compute(const Vector<4, T>& u, const Vector<4, T>& v)
     {
-        return u[0] * v[0] + u[1] * v[1] + u[2] * v[2] + u[3] * v[3];
+        return u[X] * v[X] + u[Y] * v[Y] + u[Z] * v[Z] + u[W] * v[W];
     }
 };
 
