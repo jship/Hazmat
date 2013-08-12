@@ -81,7 +81,7 @@ void TestRegistry::test<1>()
     
 
     jship::Hazmat::Cross(u, v, w);
-    DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[0], 0.0f, 0.000001f);
+    DOUBLES_EQUAL(Cross(u, v, w)[0], 0.0f, 0.000001f);
     DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[1], 0.0f, 0.000001f);
     DOUBLES_EQUAL(jship::Hazmat::Cross(u, v, w)[2], 1.0f, 0.000001f);
 
