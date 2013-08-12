@@ -11,6 +11,8 @@
 #include <Hazmat/Math/Vector/Cross.h>
 #include <Hazmat/Math/Vector/Dot.h>
 #include <Hazmat/Math/Vector/Length.h>
+#include <Hazmat/Math/Vector/Negation.h>
+#include <Hazmat/Math/Vector/Set.h>
 #include <Hazmat/Math/Vector/SquaredLength.h>
 #include <Hazmat/Math/Vector/Subtraction.h>
 

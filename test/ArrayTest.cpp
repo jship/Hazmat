@@ -90,6 +90,69 @@ void TestRegistry::test<1>()
     a[1] = 4.0f;
     DOUBLES_EQUAL(jship::Hazmat::SquaredLength(a), 25.0f, 0.000001f);
     DOUBLES_EQUAL(jship::Hazmat::Length(a), 5.0f, 0.000001f);
+
+    Add(u, v, w);
+    Add(u, u, u);
+    Add(v, v, v);
+    w = u + v;
+    u += v;
+    v += u;
+    u += u;
+    v += v;
+    
+    Sub(u, v, w);
+    Sub(u, u, u);
+    Sub(v, v, v);
+    w = u - v;
+    u -= v;
+    v -= u;
+    u -= u;
+    v -= v;
+
+    Vec2f ab; Vec3f abc; Vec4f abcd;
+
+    jship::Hazmat::Set(1ul, 2.0f, ab);
+    jship::Hazmat::Set(1, 2, 3.0f, abc);
+    jship::Hazmat::Set(1.0, 2ull, 3, 4.0, abcd);
+    
+    DOUBLES_EQUAL(ab[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(ab[1], 2.0f, 1e-5);
+    
+    DOUBLES_EQUAL(abc[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(abc[1], 2.0f, 1e-5);
+    DOUBLES_EQUAL(abc[2], 3.0f, 1e-5);
+    
+    DOUBLES_EQUAL(abcd[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[1], 2.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[2], 3.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[3], 4.0f, 1e-5);
+    
+    jship::Hazmat::Set(1.0f, 2.0f, ab);
+    jship::Hazmat::Set(1.0f, 2.0f, 3.0f, abc);
+    jship::Hazmat::Set(1.0f, 2.0f, 3.0f, 4.0f, abcd);
+    
+    DOUBLES_EQUAL(ab[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(ab[1], 2.0f, 1e-5);
+    
+    DOUBLES_EQUAL(abc[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(abc[1], 2.0f, 1e-5);
+    DOUBLES_EQUAL(abc[2], 3.0f, 1e-5);
+    
+    DOUBLES_EQUAL(abcd[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[1], 2.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[2], 3.0f, 1e-5);
+    DOUBLES_EQUAL(abcd[3], 4.0f, 1e-5);
+
+    jship::Hazmat::Negate(ab, ab);
+    DOUBLES_EQUAL(ab[0], -1.0f, 1e-5);
+    DOUBLES_EQUAL(ab[1], -2.0f, 1e-5);
+    
+    jship::Hazmat::Negate(ab, ab);
+    DOUBLES_EQUAL(ab[0], 1.0f, 1e-5);
+    DOUBLES_EQUAL(ab[1], 2.0f, 1e-5);
+    
+    DOUBLES_EQUAL(-ab[0], -1.0f, 1e-5);
+    DOUBLES_EQUAL(-ab[1], -2.0f, 1e-5);
 }
 
 template <>
