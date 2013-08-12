@@ -7,13 +7,13 @@
 #include <Hazmat/Types/Matrix.h>
 #include <Hazmat/Types/Vector.h>
 
-#include <Hazmat/Math/Vector/Addition.h>
+#include <Hazmat/Math/Vector/Add.h>
 #include <Hazmat/Math/Vector/Cross.h>
 #include <Hazmat/Math/Vector/Dot.h>
 #include <Hazmat/Math/Vector/Length.h>
-#include <Hazmat/Math/Vector/Negation.h>
+#include <Hazmat/Math/Vector/Negate.h>
 #include <Hazmat/Math/Vector/Set.h>
 #include <Hazmat/Math/Vector/SquaredLength.h>
-#include <Hazmat/Math/Vector/Subtraction.h>
+#include <Hazmat/Math/Vector/Sub.h>
 
 #endif
