@@ -153,13 +153,40 @@ void TestRegistry::test<1>()
     
     DOUBLES_EQUAL(-ab[0], -1.0f, 1e-5);
     DOUBLES_EQUAL(-ab[1], -2.0f, 1e-5);
+    
 }
 
 template <>
 template <>
 void TestRegistry::test<2>()
 {
-    return;
+    Vec2f u2, v2;
+    Vec3f u3, v3;
+    Vec4f u4, v4;
+
+    Mat2f m2;
+    Mat3f m3;
+    Mat4f m4;
+
+    v2 = u2 * m2;
+    v2 = m2 * u2;
+    v2 *= m2;
+    
+    v2 = u2 * m3;
+    v2 = m3 * u2;
+    v2 *= m3;
+    
+    v2 = u2 * m4;
+    v2 = m4 * u2;
+    v2 *= m4;
+    
+    v3 = u3 * m3;
+    v3 = m3 * u3;
+    v3 *= m3;
+    
+    v3 = u3 * m4;
+    v3 = m4 * u3;
+    v3 *= m4;
 }
 
 }

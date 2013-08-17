@@ -19,28 +19,7 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_H
-#define HAZMAT_H
-
-#include <Hazmat/Common.h>
-
-#include <Hazmat/Types/Array.h>
-#include <Hazmat/Types/Matrix.h>
-#include <Hazmat/Types/Quaternion.h>
-#include <Hazmat/Types/Vector.h>
-
-#include <Hazmat/Math/Vector/Add.h>
-#include <Hazmat/Math/Vector/Cross.h>
-#include <Hazmat/Math/Vector/Dot.h>
-#include <Hazmat/Math/Vector/Length.h>
-#include <Hazmat/Math/Vector/Lerp.h>
-#include <Hazmat/Math/Vector/Negate.h>
-#include <Hazmat/Math/Vector/Norm.h>
-#include <Hazmat/Math/Vector/Rotate.h>
-#include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/Set.h>
-#include <Hazmat/Math/Vector/SquaredLength.h>
-#include <Hazmat/Math/Vector/Sub.h>
-#include <Hazmat/Math/Vector/Transform.h>
+#ifndef HAZMAT_MATH_VECTOR_ROTATE_H
+#define HAZMAT_MATH_VECTOR_ROTATE_H
 
 #endif

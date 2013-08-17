@@ -19,28 +19,16 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_H
-#define HAZMAT_H
-
-#include <Hazmat/Common.h>
+#ifndef HAZMAT_TYPES_QUATERNION_H
+#define HAZMAT_TYPES_QUATERNION_H
 
 #include <Hazmat/Types/Array.h>
-#include <Hazmat/Types/Matrix.h>
-#include <Hazmat/Types/Quaternion.h>
-#include <Hazmat/Types/Vector.h>
 
-#include <Hazmat/Math/Vector/Add.h>
-#include <Hazmat/Math/Vector/Cross.h>
-#include <Hazmat/Math/Vector/Dot.h>
-#include <Hazmat/Math/Vector/Length.h>
-#include <Hazmat/Math/Vector/Lerp.h>
-#include <Hazmat/Math/Vector/Negate.h>
-#include <Hazmat/Math/Vector/Norm.h>
-#include <Hazmat/Math/Vector/Rotate.h>
-#include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/Set.h>
-#include <Hazmat/Math/Vector/SquaredLength.h>
-#include <Hazmat/Math/Vector/Sub.h>
-#include <Hazmat/Math/Vector/Transform.h>
+BEGIN_HAZMAT_NAMESPACE
+
+template <typename T>
+class Quaternion : public Array<4, T> { };
+
+END_HAZMAT_NAMESPACE
 
 #endif

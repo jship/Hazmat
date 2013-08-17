@@ -13,4 +13,8 @@ typedef jship::Hazmat::Vector<2, float> Vec2f;
 typedef jship::Hazmat::Vector<3, float> Vec3f;
 typedef jship::Hazmat::Vector<4, float> Vec4f;
 
+typedef jship::Hazmat::Matrix< 4, float> Mat2f;
+typedef jship::Hazmat::Matrix< 9, float> Mat3f;
+typedef jship::Hazmat::Matrix<16, float> Mat4f;
+
 #endif

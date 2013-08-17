@@ -19,28 +19,36 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_H
-#define HAZMAT_H
+#ifndef HAZMAT_MATH_VECTOR_NORM_H
+#define HAZMAT_MATH_VECTOR_NORM_H
 
-#include <Hazmat/Common.h>
-
-#include <Hazmat/Types/Array.h>
-#include <Hazmat/Types/Matrix.h>
-#include <Hazmat/Types/Quaternion.h>
-#include <Hazmat/Types/Vector.h>
-
-#include <Hazmat/Math/Vector/Add.h>
-#include <Hazmat/Math/Vector/Cross.h>
-#include <Hazmat/Math/Vector/Dot.h>
-#include <Hazmat/Math/Vector/Length.h>
-#include <Hazmat/Math/Vector/Lerp.h>
-#include <Hazmat/Math/Vector/Negate.h>
-#include <Hazmat/Math/Vector/Norm.h>
-#include <Hazmat/Math/Vector/Rotate.h>
 #include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/Set.h>
 #include <Hazmat/Math/Vector/SquaredLength.h>
-#include <Hazmat/Math/Vector/Sub.h>
-#include <Hazmat/Math/Vector/Transform.h>
+
+BEGIN_HAZMAT_NAMESPACE
+
+template <size_t DIM, typename T>
+inline
+Vector<DIM, T>& Norm(const Vector<DIM, T>& u, Vector<DIM, T>& v)
+{
+    T length = SquaredLength(u);
+
+    if (!(length > T()))
+    {
+        return v;
+    }
+
+    length = static_cast<T>(1) / std::sqrt(length);
+    return Scale(u, length, v);
+}
+
+template <size_t DIM, typename T>
+inline
+Vector<DIM, T>& Norm(Vector<DIM, T>& u)
+{
+    return Norm(u, u);
+}
+
+END_HAZMAT_NAMESPACE
 
 #endif
