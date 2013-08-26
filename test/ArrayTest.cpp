@@ -189,4 +189,31 @@ void TestRegistry::test<2>()
     v3 *= m4;
 }
 
+
+template <>
+template <>
+void TestRegistry::test<3>()
+{
+    Mat4f m;
+
+    m[0] = 3;
+    m[1] = 1;
+    m[2] = 4;
+    m[3] = 5;
+    m[4] = 0;
+    m[5] = 2;
+    m[6] = 0;
+    m[7] = 0;
+    m[8] = 2;
+    m[9] = 0;
+    m[10] = 6;
+    m[11] = 2;
+    m[12] = -1;
+    m[13] = -2;
+    m[14] = -3;
+    m[15] = 0;
+
+    DOUBLES_EQUAL(jship::Hazmat::Determinant(m), 21.0f, 1e-5);
+}
+
 }
