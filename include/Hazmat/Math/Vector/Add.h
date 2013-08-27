@@ -19,65 +19,14 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_ADDITION_H
-#define HAZMAT_MATH_VECTOR_ADDITION_H
+#ifndef HAZMAT_MATH_VECTOR_ADD_H
+#define HAZMAT_MATH_VECTOR_ADD_H
 
 #include <Hazmat/Types/Vector.h>
 
+#include <Hazmat/Math/Vector/Priv/Add.inl>
+
 BEGIN_HAZMAT_NAMESPACE
-
-namespace Priv
-{
-
-template <int DIM, typename T>
-class Addition;
-
-template <typename T>
-class Addition<2, T>
-{
-public:
-    static Vector<2, T>& compute(const Vector<2, T>& u,
-                                 const Vector<2, T>& v,
-                                       Vector<2, T>& w)
-    {
-        w[X] = u[X] + v[X];
-        w[Y] = u[Y] + v[Y];
-        return w;
-    }
-};
-
-template <typename T>
-class Addition<3, T>
-{
-public:
-    static Vector<3, T>& compute(const Vector<3, T>& u,
-                                 const Vector<3, T>& v,
-                                       Vector<3, T>& w)
-    {
-        w[X] = u[X] + v[X];
-        w[Y] = u[Y] + v[Y];
-        w[Z] = u[Z] + v[Z];
-        return w;
-    }
-};
-
-template <typename T>
-class Addition<4, T>
-{
-public:
-    static Vector<4, T>& compute(const Vector<4, T>& u,
-                                 const Vector<4, T>& v,
-                                       Vector<4, T>& w)
-    {
-        w[X] = u[X] + v[X];
-        w[Y] = u[Y] + v[Y];
-        w[Z] = u[Z] + v[Z];
-        w[W] = u[W] + v[W];
-        return w;
-    }
-};
-
-}
 
 template <int DIM, typename T>
 inline
