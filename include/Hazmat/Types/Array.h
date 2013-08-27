@@ -26,7 +26,7 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Array
 {
 public:
@@ -37,48 +37,48 @@ public:
     T* bytes();
     const T* bytes() const;
 
-    T  operator[](size_t i) const;
-    T& operator[](size_t i);
+    T  operator[](int i) const;
+    T& operator[](int i);
     
-    static const size_t dimensions = DIM;
-    static const size_t byteCount  = DIM * sizeof(T);
+    static const int dimensions = DIM;
+    static const int byteCount  = DIM * sizeof(T);
 
 private:
     T mComponents[DIM];
 };
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Array<DIM, T>::Array()
 {
     memset(mComponents, 0, byteCount);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 T* Array<DIM, T>::bytes()
 {
     return &mComponents[0];
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 const T* Array<DIM, T>::bytes() const
 {
     return &mComponents[0];
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
-T Array<DIM, T>::operator[](size_t i) const
+T Array<DIM, T>::operator[](int i) const
 {
     // TODO: Debug error checking...
     return mComponents[i];
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
-T& Array<DIM, T>::operator[](size_t i)
+T& Array<DIM, T>::operator[](int i)
 {
     // TODO: Debug error checking...
     return mComponents[i];

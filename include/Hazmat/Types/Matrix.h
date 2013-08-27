@@ -26,7 +26,7 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Matrix : public Array<DIM, T> { };
 
 END_HAZMAT_NAMESPACE

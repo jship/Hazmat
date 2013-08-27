@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Determinant;
 
 template <typename T>
@@ -93,7 +93,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 T Determinant(const Matrix<DIM, T>& a)
 {

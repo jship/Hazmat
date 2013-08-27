@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Set;
 
 template <typename T>
@@ -77,7 +77,7 @@ public:
 }
 
 template <
-             size_t DIM,
+             int DIM,
              typename T,
              typename TX,
              typename TY
@@ -89,7 +89,7 @@ Vector<DIM, T>& Set(TX x, TY y, Vector<DIM, T>& u)
 }
 
 template <
-             size_t DIM,
+             int DIM,
              typename T,
              typename TX,
              typename TY,
@@ -102,7 +102,7 @@ Vector<DIM, T>& Set(TX x, TY y, TZ z, Vector<DIM, T>& u)
 }
 
 template <
-             size_t DIM,
+             int DIM,
              typename T,
              typename TX,
              typename TY,

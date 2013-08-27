@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Cross;
 
 // Cross is mathematically only defined for 3D vectors
@@ -69,7 +69,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Cross(const Vector<DIM, T>& u,
                       const Vector<DIM, T>& v,

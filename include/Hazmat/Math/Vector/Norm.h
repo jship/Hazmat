@@ -27,7 +27,7 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Norm(const Vector<DIM, T>& u, Vector<DIM, T>& v)
 {
@@ -42,7 +42,7 @@ Vector<DIM, T>& Norm(const Vector<DIM, T>& u, Vector<DIM, T>& v)
     return Scale(u, length, v);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Norm(Vector<DIM, T>& u)
 {

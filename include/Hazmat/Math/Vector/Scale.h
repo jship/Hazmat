@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class LinearScaling;
 
 template <typename T>
@@ -73,21 +73,21 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Scale(const Vector<DIM, T>& u, T s, Vector<DIM, T>& v)
 {
     return Priv::LinearScaling<DIM, T>::compute(u, s, v);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& operator*=(Vector<DIM, T>& u, T s)
 {
     return Scale(u, s, u);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T> operator*(Vector<DIM, T> u, T s)
 {
@@ -95,7 +95,7 @@ Vector<DIM, T> operator*(Vector<DIM, T> u, T s)
     return u;
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T> operator*(T s, Vector<DIM, T> u)
 {

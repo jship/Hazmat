@@ -30,7 +30,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t MDIM, size_t VDIM, typename T>
+template <int MDIM, int VDIM, typename T>
 class TransformVector;
 
 // 2x2 * 2x1
@@ -141,7 +141,7 @@ public:
 
 }
 
-template <size_t MDIM, size_t VDIM, typename T>
+template <int MDIM, int VDIM, typename T>
 inline
 Vector<VDIM, T>& Transform(const Matrix<MDIM, T>& m,
                            const Vector<VDIM, T>& u,
@@ -150,7 +150,7 @@ Vector<VDIM, T>& Transform(const Matrix<MDIM, T>& m,
     return Priv::TransformVector<MDIM, VDIM, T>::compute(m, u, v);
 }
 
-template <size_t MDIM, size_t VDIM, typename T>
+template <int MDIM, int VDIM, typename T>
 inline
 Vector<VDIM, T>& operator*=(      Vector<VDIM, T>& u,
                             const Matrix<MDIM, T>& m)
@@ -158,7 +158,7 @@ Vector<VDIM, T>& operator*=(      Vector<VDIM, T>& u,
     return Transform(m, u, u);
 }
 
-template <size_t MDIM, size_t VDIM, typename T>
+template <int MDIM, int VDIM, typename T>
 inline
 Vector<VDIM, T> operator*(const Matrix<MDIM, T>& m,
                                 Vector<VDIM, T>  u)
@@ -167,7 +167,7 @@ Vector<VDIM, T> operator*(const Matrix<MDIM, T>& m,
     return u;
 }
 
-template <size_t MDIM, size_t VDIM, typename T>
+template <int MDIM, int VDIM, typename T>
 inline
 Vector<VDIM, T> operator*(      Vector<VDIM, T>  u,
                           const Matrix<MDIM, T>& m)

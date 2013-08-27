@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Addition;
 
 template <typename T>
@@ -79,7 +79,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Add(const Vector<DIM, T>& u,
                     const Vector<DIM, T>& v,
@@ -88,7 +88,7 @@ Vector<DIM, T>& Add(const Vector<DIM, T>& u,
     return Priv::Addition<DIM, T>::compute(u, v, w);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& operator+=(      Vector<DIM, T>& u,
                            const Vector<DIM, T>& v)
@@ -96,7 +96,7 @@ Vector<DIM, T>& operator+=(      Vector<DIM, T>& u,
     return Add(u, v, u);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T> operator+(      Vector<DIM, T>  u,
                          const Vector<DIM, T>& v)

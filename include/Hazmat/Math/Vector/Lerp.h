@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class LinearInterpolation;
 
 template <typename T>
@@ -82,7 +82,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Lerp(const Vector<DIM, T>& u,
                      const Vector<DIM, T>& v,

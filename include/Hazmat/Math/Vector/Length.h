@@ -26,7 +26,7 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 T Length(const Vector<DIM, T>& u)
 {

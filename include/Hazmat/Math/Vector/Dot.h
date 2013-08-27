@@ -33,7 +33,7 @@ namespace Priv
 // (Note a loop could be used and only one function would
 // be required for all vector types, but this way guarantees
 // no branching.)
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Dot;
 
 template <typename T>
@@ -68,7 +68,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 T Dot(const Vector<DIM, T>& u, const Vector<DIM, T>& v)
 {

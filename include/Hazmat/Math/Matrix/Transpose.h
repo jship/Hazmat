@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Transpose;
 
 template <typename T>
@@ -99,7 +99,7 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Matrix<DIM, T>& Transpose(const Matrix<16, T>& a, Matrix<16, T>& b)
 {

@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 namespace Priv
 {
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 class Negation;
 
 template <typename T>
@@ -76,14 +76,14 @@ public:
 
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T>& Negate(const Vector<DIM, T>& u, Vector<DIM, T>& v)
 {
     return Priv::Negation<DIM, T>::compute(u, v);
 }
 
-template <size_t DIM, typename T>
+template <int DIM, typename T>
 inline
 Vector<DIM, T> operator-(const Vector<DIM, T>& u)
 {
