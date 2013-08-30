@@ -24,36 +24,26 @@
 
 #include <Hazmat/Types/Vector.h>
 
-#include <Hazmat/Math/Vector/Priv/Add.inl>
-
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
 inline
 Vector<DIM, T>& Add(const Vector<DIM, T>& u,
                     const Vector<DIM, T>& v,
-                          Vector<DIM, T>& w)
-{
-    return Priv::Addition<DIM, T>::compute(u, v, w);
-}
+                          Vector<DIM, T>& w);
 
 template <int DIM, typename T>
 inline
 Vector<DIM, T>& operator+=(      Vector<DIM, T>& u,
-                           const Vector<DIM, T>& v)
-{
-    return Add(u, v, u);
-}
+                           const Vector<DIM, T>& v);
 
 template <int DIM, typename T>
 inline
 Vector<DIM, T> operator+(      Vector<DIM, T>  u,
-                         const Vector<DIM, T>& v)
-{
-    u += v;
-    return u;
-}
+                         const Vector<DIM, T>& v);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/Add.inl>
 
 #endif
