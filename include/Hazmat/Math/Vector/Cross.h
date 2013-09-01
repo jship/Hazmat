@@ -24,19 +24,16 @@
 
 #include <Hazmat/Types/Vector.h>
 
-#include <Hazmat/Math/Vector/Priv/Cross.inl>
-
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
 inline
 Vector<DIM, T>& Cross(const Vector<DIM, T>& u,
                       const Vector<DIM, T>& v,
-                            Vector<DIM, T>& w)
-{
-    return Priv::Cross<DIM, T>::compute(u, v, w);
-}
+                            Vector<DIM, T>& w);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/Cross.inl>
 
 #endif

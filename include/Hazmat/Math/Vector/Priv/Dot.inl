@@ -19,27 +19,54 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_NORM_H
-#define HAZMAT_MATH_VECTOR_NORM_H
-
-#include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/SquaredLength.h>
+#ifndef HAZMAT_MATH_VECTOR_DOT_INL
+#define HAZMAT_MATH_VECTOR_DOT_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
+namespace Priv
+{
+
+template <int DIM, typename T>
+class Dot;
+
+template <typename T>
+class Dot<2, T>
+{
+public:
+    static T compute(const Vector<2, T>& u, const Vector<2, T>& v)
+    {
+        return u[X] * v[X] + u[Y] * v[Y];
+    }
+};
+
+template <typename T>
+class Dot<3, T>
+{
+public:
+    static T compute(const Vector<3, T>& u, const Vector<3, T>& v)
+    {
+        return u[X] * v[X] + u[Y] * v[Y] + u[Z] * v[Z];
+    }
+};
+
+template <typename T>
+class Dot<4, T>
+{
+public:
+    static T compute(const Vector<4, T>& u, const Vector<4, T>& v)
+    {
+        return u[X] * v[X] + u[Y] * v[Y] + u[Z] * v[Z] + u[W] * v[W];
+    }
+};
+
+}
+
 template <int DIM, typename T>
 inline
-Vector<DIM, T>& Norm(const Vector<DIM, T>& u, Vector<DIM, T>& v)
+T Dot(const Vector<DIM, T>& u, const Vector<DIM, T>& v)
 {
-    T length = SquaredLength(u);
-
-    if (!(length > T()))
-    {
-        return v;
-    }
-
-    length = static_cast<T>(1) / std::sqrt(length);
-    return Scale(u, length, v);
+    return Priv::Dot<DIM, T>::compute(u, v);
 }
 
 END_HAZMAT_NAMESPACE
