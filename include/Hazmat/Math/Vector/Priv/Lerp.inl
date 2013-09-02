@@ -19,8 +19,8 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_CROSS_INL
-#define HAZMAT_MATH_VECTOR_CROSS_INL
+#ifndef HAZMAT_MATH_VECTOR_LERP_INL
+#define HAZMAT_MATH_VECTOR_LERP_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
@@ -28,40 +28,50 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Cross;
+class LinearInterpolation;
 
 template <typename T>
-class Cross<3, T>
+class LinearInterpolation<2, T>
 {
 public:
-    static void compute(const Vector<3, T>& u,
-                        const Vector<3, T>& v,
-                              Vector<3, T>& w)
+    static void compute(const Vector<2, T>& u,
+                        const Vector<2, T>& v,
+                                         T  t,
+                              Vector<2, T>& w)
     {
-        T ux = u[X], uy = u[Y], uz = u[Z];
-        T vx = v[X], vy = v[Y], vz = v[Z];
-
-        w[X] = uy * vz - uz * vy;
-        w[Y] = uz * vx - ux * vz;
-        w[Z] = ux * vy - uy * vx;
+        w[X] = u[X] + t * (v[X] - u[X]);
+        w[Y] = u[Y] + t * (v[Y] - u[Y]);
     }
 };
 
 template <typename T>
-class Cross<4, T>
+class LinearInterpolation<3, T>
+{
+public:
+    static void compute(const Vector<3, T>& u,
+                        const Vector<3, T>& v,
+                                         T  t,
+                              Vector<3, T>& w)
+    {
+        w[X] = u[X] + t * (v[X] - u[X]);
+        w[Y] = u[Y] + t * (v[Y] - u[Y]);
+        w[Z] = u[Z] + t * (v[Z] - u[Z]);
+    }
+};
+
+template <typename T>
+class LinearInterpolation<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u,
                         const Vector<4, T>& v,
+                                         T  t,
                               Vector<4, T>& w)
     {
-        T ux = u[X], uy = u[Y], uz = u[Z], uw = u[W];
-        T vx = v[X], vy = v[Y], vz = v[Z], vw = v[W];
-
-        w[X] = uy * vz - uz * vy;
-        w[Y] = uz * vx - ux * vz;
-        w[Z] = ux * vy - uy * vx;
-        w[W] = T();
+        w[X] = u[X] + t * (v[X] - u[X]);
+        w[Y] = u[Y] + t * (v[Y] - u[Y]);
+        w[Z] = u[Z] + t * (v[Z] - u[Z]);
+        w[W] = u[W] + t * (v[W] - u[W]);
     }
 };
 
@@ -69,11 +79,12 @@ public:
 
 template <int DIM, typename T>
 inline
-void Cross(const Vector<DIM, T>& u,
-           const Vector<DIM, T>& v,
-                 Vector<DIM, T>& w)
+void Lerp(const Vector<DIM, T>& u,
+          const Vector<DIM, T>& v,
+                             T  t,
+                Vector<DIM, T>& w)
 {
-    Priv::Cross<DIM, T>::compute(u, v, w);
+    Priv::LinearInterpolation<DIM, T>::compute(u, v, t, w);
 }
 
 END_HAZMAT_NAMESPACE

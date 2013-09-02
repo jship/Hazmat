@@ -19,28 +19,75 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_SUB_H
-#define HAZMAT_MATH_VECTOR_SUB_H
-
-#include <Hazmat/Types/Vector.h>
+#ifndef HAZMAT_MATH_VECTOR_NEGATE_INL
+#define HAZMAT_MATH_VECTOR_NEGATE_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <int DIM, typename T>
-void Sub(const Vector<DIM, T>& u,
-         const Vector<DIM, T>& v,
-               Vector<DIM, T>& w);
+namespace Priv
+{
 
 template <int DIM, typename T>
-Vector<DIM, T>& operator-=(      Vector<DIM, T>& u,
-                           const Vector<DIM, T>& v);
+class Negation;
+
+template <typename T>
+class Negation<2, T>
+{
+public:
+    static void compute(const Vector<2, T>& u,
+                              Vector<2, T>& v)
+    {
+        v[X] = -u[X];
+        v[Y] = -u[Y];
+    }
+};
+
+template <typename T>
+class Negation<3, T>
+{
+public:
+    static void compute(const Vector<3, T>& u,
+                              Vector<3, T>& v)
+    {
+        v[X] = -u[X];
+        v[Y] = -u[Y];
+        v[Z] = -u[Z];
+    }
+};
+
+template <typename T>
+class Negation<4, T>
+{
+public:
+    static void compute(const Vector<4, T>& u,
+                              Vector<4, T>& v)
+    {
+        v[X] = -u[X];
+        v[Y] = -u[Y];
+        v[Z] = -u[Z];
+        v[W] = -u[W];
+    }
+};
+
+}
 
 template <int DIM, typename T>
-Vector<DIM, T> operator-(      Vector<DIM, T>  u,
-                         const Vector<DIM, T>& v);
+inline
+void Negate(const Vector<DIM, T>& u,
+                  Vector<DIM, T>& v)
+{
+    Priv::Negation<DIM, T>::compute(u, v);
+}
+
+template <int DIM, typename T>
+inline
+Vector<DIM, T> operator-(const Vector<DIM, T>& u)
+{
+    Vector<DIM, T> v;
+    Negate(u, v);
+    return v;
+}
 
 END_HAZMAT_NAMESPACE
-
-#include <Hazmat/Math/Vector/Priv/Sub.inl>
 
 #endif

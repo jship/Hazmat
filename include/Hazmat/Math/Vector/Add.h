@@ -27,18 +27,15 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-Vector<DIM, T>& Add(const Vector<DIM, T>& u,
-                    const Vector<DIM, T>& v,
-                          Vector<DIM, T>& w);
+void Add(const Vector<DIM, T>& u,
+         const Vector<DIM, T>& v,
+               Vector<DIM, T>& w);
 
 template <int DIM, typename T>
-inline
 Vector<DIM, T>& operator+=(      Vector<DIM, T>& u,
                            const Vector<DIM, T>& v);
 
 template <int DIM, typename T>
-inline
 Vector<DIM, T> operator+(      Vector<DIM, T>  u,
                          const Vector<DIM, T>& v);
 

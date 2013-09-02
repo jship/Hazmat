@@ -27,12 +27,10 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-T Length(const Vector<DIM, T>& u)
-{
-    return std::sqrt(SquaredLength(u));
-}
+T Length(const Vector<DIM, T>& u);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/Length.inl>
 
 #endif

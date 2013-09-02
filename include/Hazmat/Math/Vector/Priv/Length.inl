@@ -19,18 +19,18 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_DOT_H
-#define HAZMAT_MATH_VECTOR_DOT_H
-
-#include <Hazmat/Types/Vector.h>
+#ifndef HAZMAT_MATH_VECTOR_LENGTH_INL
+#define HAZMAT_MATH_VECTOR_LENGTH_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-T Dot(const Vector<DIM, T>& u, const Vector<DIM, T>& v);
+inline
+T Length(const Vector<DIM, T>& u)
+{
+    return std::sqrt(SquaredLength(u));
+}
 
 END_HAZMAT_NAMESPACE
-
-#include <Hazmat/Math/Vector/Priv/Dot.inl>
 
 #endif

@@ -26,72 +26,14 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-
 template <int DIM, typename T>
-class LinearInterpolation;
-
-template <typename T>
-class LinearInterpolation<2, T>
-{
-public:
-    static Vector<2, T>& compute(const Vector<2, T>& u,
-                                 const Vector<2, T>& v,
-                                                  T  t,
-                                       Vector<2, T>& w)
-    {
-        w[X] = u[X] + t * (v[X] - u[X]);
-        w[Y] = u[Y] + t * (v[Y] - u[Y]);
-        return w;
-    }
-};
-
-template <typename T>
-class LinearInterpolation<3, T>
-{
-public:
-    static Vector<3, T>& compute(const Vector<3, T>& u,
-                                 const Vector<3, T>& v,
-                                                  T  t,
-                                       Vector<3, T>& w)
-    {
-        w[X] = u[X] + t * (v[X] - u[X]);
-        w[Y] = u[Y] + t * (v[Y] - u[Y]);
-        w[Z] = u[Z] + t * (v[Z] - u[Z]);
-        return w;
-    }
-};
-
-template <typename T>
-class LinearInterpolation<4, T>
-{
-public:
-    static Vector<4, T>& compute(const Vector<4, T>& u,
-                                 const Vector<4, T>& v,
-                                                  T  t,
-                                       Vector<4, T>& w)
-    {
-        w[X] = u[X] + t * (v[X] - u[X]);
-        w[Y] = u[Y] + t * (v[Y] - u[Y]);
-        w[Z] = u[Z] + t * (v[Z] - u[Z]);
-        w[W] = u[W] + t * (v[W] - u[W]);
-        return w;
-    }
-};
-
-}
-
-template <int DIM, typename T>
-inline
-Vector<DIM, T>& Lerp(const Vector<DIM, T>& u,
-                     const Vector<DIM, T>& v,
-                                        T  t,
-                           Vector<DIM, T>& w)
-{
-    return Priv::LinearInterpolation<DIM, T>::compute(u, v, t, w);
-}
+void Lerp(const Vector<DIM, T>& u,
+          const Vector<DIM, T>& v,
+                             T  t,
+                Vector<DIM, T>& w);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/Lerp.inl>
 
 #endif

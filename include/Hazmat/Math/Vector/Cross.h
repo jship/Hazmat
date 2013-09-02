@@ -27,10 +27,9 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-Vector<DIM, T>& Cross(const Vector<DIM, T>& u,
-                      const Vector<DIM, T>& v,
-                            Vector<DIM, T>& w);
+void Cross(const Vector<DIM, T>& u,
+           const Vector<DIM, T>& v,
+                 Vector<DIM, T>& w);
 
 END_HAZMAT_NAMESPACE
 
