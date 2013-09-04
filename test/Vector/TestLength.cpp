@@ -23,7 +23,7 @@ void TestRegistry::test<1>()
 
     set_test_name("Length (2D vector)");
     
-    float result = Length(u2f);
+    float result = jship::Hazmat::Length(u2f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u2f[X], 0.0, 1e-5);
@@ -32,7 +32,7 @@ void TestRegistry::test<1>()
     u2f[X] = 1.0f;
     u2f[Y] = 2.0f;
     
-    result = Length(u2f);
+    result = jship::Hazmat::Length(u2f);
     DOUBLES_EQUAL(result, std::sqrt(5.0), 1e-5);
     
     DOUBLES_EQUAL(u2f[X], 1.0, 1e-5);
@@ -41,7 +41,7 @@ void TestRegistry::test<1>()
     u2f[X] = -1.0f;
     u2f[Y] = -2.0f;
     
-    result = Length(u2f);
+    result = jship::Hazmat::Length(u2f);
     DOUBLES_EQUAL(result, std::sqrt(5.0), 1e-5);
 
     DOUBLES_EQUAL(u2f[X], -1.0, 1e-5);
@@ -58,7 +58,7 @@ void TestRegistry::test<2>()
 
     set_test_name("Length (3D vector)");
     
-    float result = Length(u3f);
+    float result = jship::Hazmat::Length(u3f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u3f[X], 0.0, 1e-5);
@@ -69,7 +69,7 @@ void TestRegistry::test<2>()
     u3f[Y] = 2.0f;
     u3f[Z] = 3.0f;
     
-    result = Length(u3f);
+    result = jship::Hazmat::Length(u3f);
     DOUBLES_EQUAL(result, std::sqrt(14.0), 1e-5);
     
     DOUBLES_EQUAL(u3f[X], 1.0, 1e-5);
@@ -80,7 +80,7 @@ void TestRegistry::test<2>()
     u3f[Y] = -2.0f;
     u3f[Z] = -3.0f;
     
-    result = Length(u3f);
+    result = jship::Hazmat::Length(u3f);
     DOUBLES_EQUAL(result, std::sqrt(14.0), 1e-5);
 
     DOUBLES_EQUAL(u3f[X], -1.0, 1e-5);
@@ -99,7 +99,7 @@ void TestRegistry::test<3>()
 
     set_test_name("Length (4D vector)");
     
-    float result = Length(u4f);
+    float result = jship::Hazmat::Length(u4f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u4f[X], 0.0, 1e-5);
@@ -112,7 +112,7 @@ void TestRegistry::test<3>()
     u4f[Z] = 3.0f;
     u4f[W] = 4.0f;
     
-    result = Length(u4f);
+    result = jship::Hazmat::Length(u4f);
     DOUBLES_EQUAL(result, std::sqrt(30.0), 1e-5);
     
     DOUBLES_EQUAL(u4f[X], 1.0, 1e-5);
@@ -125,7 +125,7 @@ void TestRegistry::test<3>()
     u4f[Z] = -3.0f;
     u4f[W] = -4.0f;
     
-    result = Length(u4f);
+    result = jship::Hazmat::Length(u4f);
     DOUBLES_EQUAL(result, std::sqrt(30.0), 1e-5);
 
     DOUBLES_EQUAL(u4f[X], -1.0, 1e-5);

@@ -28,20 +28,11 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-Vector<DIM, T>& Norm(const Vector<DIM, T>& u, Vector<DIM, T>& v)
-{
-    T length = SquaredLength(u);
-
-    if (!(length > T()))
-    {
-        return v;
-    }
-
-    length = static_cast<T>(1) / std::sqrt(length);
-    return Scale(u, length, v);
-}
+void Norm(const Vector<DIM, T>& u,
+                Vector<DIM, T>& v);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/Norm.inl>
 
 #endif

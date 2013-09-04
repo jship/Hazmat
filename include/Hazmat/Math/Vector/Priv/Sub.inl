@@ -89,6 +89,7 @@ Vector<DIM, T>& operator-=(      Vector<DIM, T>& u,
                            const Vector<DIM, T>& v)
 {
     Sub(u, v, u);
+    return u;
 }
 
 template <int DIM, typename T>

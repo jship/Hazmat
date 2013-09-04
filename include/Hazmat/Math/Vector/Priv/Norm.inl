@@ -19,27 +19,27 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_SCALE_H
-#define HAZMAT_MATH_VECTOR_SCALE_H
-
-#include <Hazmat/Types/Vector.h>
+#ifndef HAZMAT_MATH_VECTOR_NORM_INL
+#define HAZMAT_MATH_VECTOR_NORM_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-void Scale(const Vector<DIM, T>& u, T s, Vector<DIM, T>& v);
+inline
+void Norm(const Vector<DIM, T>& u,
+                Vector<DIM, T>& v)
+{
+    T length = SquaredLength(u);
 
-template <int DIM, typename T>
-Vector<DIM, T>& operator*=(Vector<DIM, T>& u, T s);
+    if (!(length > T()))
+    {
+        return;
+    }
 
-template <int DIM, typename T>
-Vector<DIM, T> operator*(Vector<DIM, T> u, T s);
-
-template <int DIM, typename T>
-Vector<DIM, T> operator*(T s, Vector<DIM, T> u);
+    length = static_cast<T>(1) / std::sqrt(length);
+    Scale(u, length, v);
+}
 
 END_HAZMAT_NAMESPACE
-
-#include <Hazmat/Math/Vector/Priv/Scale.inl>
 
 #endif

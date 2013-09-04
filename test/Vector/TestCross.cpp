@@ -23,7 +23,7 @@ void TestRegistry::test<1>()
 
     set_test_name("Cross (3D vectors)");
 
-    Cross(u3f, v3f, w3f);
+    jship::Hazmat::Cross(u3f, v3f, w3f);
 
     DOUBLES_EQUAL(u3f[X], 0.0, 1e-5);
     DOUBLES_EQUAL(u3f[Y], 0.0, 1e-5);
@@ -39,7 +39,7 @@ void TestRegistry::test<1>()
     u3f[Y] = 0.0f; v3f[Y] = 1.0f;
     u3f[Z] = 0.0f; v3f[Z] = 0.0f;
     
-    Cross(u3f, v3f, w3f);
+    jship::Hazmat::Cross(u3f, v3f, w3f);
 
     DOUBLES_EQUAL(u3f[X], 1.0, 1e-5);
     DOUBLES_EQUAL(u3f[Y], 0.0, 1e-5);
@@ -55,7 +55,7 @@ void TestRegistry::test<1>()
     u3f[Y] = -103.25f; v3f[Y] = -14.4f;
     u3f[Z] =    9.63f; v3f[Z] = 42.42f;
     
-    Cross(u3f, v3f, w3f);
+    jship::Hazmat::Cross(u3f, v3f, w3f);
 
     DOUBLES_EQUAL(u3f[X],    18.7  , 1e-1);
     DOUBLES_EQUAL(u3f[Y],  -103.25 , 1e-1);
@@ -67,7 +67,7 @@ void TestRegistry::test<1>()
     DOUBLES_EQUAL(w3f[Y], -1192.9  , 1e-1);
     DOUBLES_EQUAL(w3f[Z], -4554.16 , 1e-1);
     
-    Cross(u3f, u3f, u3f);
+    jship::Hazmat::Cross(u3f, u3f, u3f);
 
     DOUBLES_EQUAL(u3f[X], 0.0, 1e-5);
     DOUBLES_EQUAL(u3f[Y], 0.0, 1e-5);
@@ -85,7 +85,7 @@ void TestRegistry::test<2>()
 
     set_test_name("Cross (4D vectors)");
     
-    Cross(u4f, v4f, w4f);
+    jship::Hazmat::Cross(u4f, v4f, w4f);
     
     DOUBLES_EQUAL(u4f[X], 0.0, 1e-5);
     DOUBLES_EQUAL(u4f[Y], 0.0, 1e-5);
@@ -105,7 +105,7 @@ void TestRegistry::test<2>()
     u4f[Z] = 0.0f; v4f[Z] = 0.0f;
     u4f[W] = 0.0f; v4f[W] = 0.0f;
     
-    Cross(u4f, v4f, w4f);
+    jship::Hazmat::Cross(u4f, v4f, w4f);
 
     DOUBLES_EQUAL(u4f[X], 1.0, 1e-5);
     DOUBLES_EQUAL(u4f[Y], 0.0, 1e-5);
@@ -125,7 +125,7 @@ void TestRegistry::test<2>()
     u4f[Z] =    9.63f; v4f[Z] = 42.42f;
     u4f[W] =    1.23f; v4f[W] =  4.56f;
     
-    Cross(u4f, v4f, w4f);
+    jship::Hazmat::Cross(u4f, v4f, w4f);
 
     DOUBLES_EQUAL(u4f[X],    18.7  , 1e-1);
     DOUBLES_EQUAL(u4f[Y],  -103.25 , 1e-1);
@@ -140,7 +140,7 @@ void TestRegistry::test<2>()
     DOUBLES_EQUAL(w4f[Z], -4554.16 , 1e-1);
     DOUBLES_EQUAL(w4f[W],      0.0 , 1e-5);
     
-    Cross(u4f, u4f, u4f);
+    jship::Hazmat::Cross(u4f, u4f, u4f);
 
     DOUBLES_EQUAL(u4f[X], 0.0, 1e-5);
     DOUBLES_EQUAL(u4f[Y], 0.0, 1e-5);

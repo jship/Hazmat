@@ -19,24 +19,79 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_SET_H
-#define HAZMAT_MATH_VECTOR_SET_H
-
-#include <Hazmat/Types/Vector.h>
+#ifndef HAZMAT_MATH_VECTOR_SET_INL
+#define HAZMAT_MATH_VECTOR_SET_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
+namespace Priv
+{
+
+template <int DIM, typename T>
+class Set;
+
+template <typename T>
+class Set<2, T>
+{
+public:
+    template <typename TX, typename TY>
+    static void assign(TX x, TY y, Vector<2, T>& u)
+    {
+        u[X] = x;
+        u[Y] = y;
+    }
+};
+
+template <typename T>
+class Set<3, T>
+{
+public:
+    template <typename TX, typename TY, typename TZ>
+    static void assign(TX x, TY y, TZ z, Vector<3, T>& u)
+    {
+        u[X] = x;
+        u[Y] = y;
+        u[Z] = z;
+    }
+};
+
+template <typename T>
+class Set<4, T>
+{
+public:
+    template <typename TX, typename TY, typename TZ, typename TW>
+    static void assign(TX x, TY y, TZ z, TW w, Vector<4, T>& u)
+    {
+        u[X] = x;
+        u[Y] = y;
+        u[Z] = z;
+        u[W] = w;
+    }
+};
+
+}
+
 template <int DIM, typename T, typename TX, typename TY>
-void Set(TX x, TY y, Vector<DIM, T>& u);
+inline
+void Set(TX x, TY y, Vector<DIM, T>& u)
+{
+    Priv::Set<DIM, T>::assign(x, y, u);
+}
 
 template <int DIM, typename T, typename TX, typename TY, typename TZ>
-void Set(TX x, TY y, TZ z, Vector<DIM, T>& u);
+inline
+void Set(TX x, TY y, TZ z, Vector<DIM, T>& u)
+{
+    Priv::Set<DIM, T>::assign(x, y, z, u);
+}
 
 template <int DIM, typename T, typename TX, typename TY, typename TZ, typename TW>
-void Set(TX x, TY y, TZ z, TW w, Vector<DIM, T>& u);
+inline
+void Set(TX x, TY y, TZ z, TW w, Vector<DIM, T>& u)
+{
+    Priv::Set<DIM, T>::assign(x, y, z, w, u);
+}
 
 END_HAZMAT_NAMESPACE
-
-#include <Hazmat/Math/Vector/Priv/Set.inl>
 
 #endif

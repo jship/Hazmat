@@ -23,7 +23,7 @@ void TestRegistry::test<1>()
 
     set_test_name("Dot (2D vectors)");
     
-    float result = Dot(u2f, v2f);
+    float result = jship::Hazmat::Dot(u2f, v2f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u2f[X], 0.0, 1e-5);
@@ -34,7 +34,7 @@ void TestRegistry::test<1>()
     u2f[X] = 1.0f; v2f[X] = 0.0f;
     u2f[Y] = 0.0f; v2f[Y] = 1.0f;
     
-    result = Dot(u2f, v2f);
+    result = jship::Hazmat::Dot(u2f, v2f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u2f[X], 1.0, 1e-5);
@@ -45,7 +45,7 @@ void TestRegistry::test<1>()
     u2f[X] = 1.0f; v2f[X] = 3.0f;
     u2f[Y] = 2.0f; v2f[Y] = 4.0f;
     
-    result = Dot(u2f, v2f);
+    result = jship::Hazmat::Dot(u2f, v2f);
     DOUBLES_EQUAL(result, 11.0, 1e-5);
 
     DOUBLES_EQUAL(u2f[X], 1.0, 1e-5);
@@ -64,7 +64,7 @@ void TestRegistry::test<2>()
 
     set_test_name("Dot (3D vectors)");
     
-    float result = Dot(u3f, v3f);
+    float result = jship::Hazmat::Dot(u3f, v3f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u3f[X], 0.0, 1e-5);
@@ -78,7 +78,7 @@ void TestRegistry::test<2>()
     u3f[Y] = 0.0f; v3f[Y] = 1.0f;
     u3f[Z] = 0.0f; v3f[Z] = 0.0f;
     
-    result = Dot(u3f, v3f);
+    result = jship::Hazmat::Dot(u3f, v3f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u3f[X], 1.0, 1e-5);
@@ -92,7 +92,7 @@ void TestRegistry::test<2>()
     u3f[Y] = 2.0f; v3f[Y] = 5.0f;
     u3f[Z] = 3.0f; v3f[Z] = 6.0f;
     
-    result = Dot(u3f, v3f);
+    result = jship::Hazmat::Dot(u3f, v3f);
     DOUBLES_EQUAL(result, 32.0, 1e-5);
 
     DOUBLES_EQUAL(u3f[X], 1.0, 1e-5);
@@ -114,7 +114,7 @@ void TestRegistry::test<3>()
 
     set_test_name("Dot (4D vectors)");
     
-    float result = Dot(u4f, v4f);
+    float result = jship::Hazmat::Dot(u4f, v4f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u4f[X], 0.0, 1e-5);
@@ -131,7 +131,7 @@ void TestRegistry::test<3>()
     u4f[Z] = 0.0f; v4f[Z] = 0.0f;
     u4f[W] = 0.0f; v4f[W] = 0.0f;
     
-    result = Dot(u4f, v4f);
+    result = jship::Hazmat::Dot(u4f, v4f);
     DOUBLES_EQUAL(result, 0.0, 1e-5);
 
     DOUBLES_EQUAL(u4f[X], 1.0, 1e-5);
@@ -148,7 +148,7 @@ void TestRegistry::test<3>()
     u4f[Z] = 3.0f; v4f[Z] = 7.0f;
     u4f[W] = 4.0f; v4f[W] = 8.0f;
     
-    result = Dot(u4f, v4f);
+    result = jship::Hazmat::Dot(u4f, v4f);
     DOUBLES_EQUAL(result, 70.0, 1e-5);
 
     DOUBLES_EQUAL(u4f[X], 1.0, 1e-5);

@@ -27,12 +27,10 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-T SquaredLength(const Vector<DIM, T>& u)
-{
-    return Dot(u, u);
-}
+T SquaredLength(const Vector<DIM, T>& u);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Vector/Priv/SquaredLength.inl>
 
 #endif
