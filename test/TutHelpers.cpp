@@ -18,10 +18,10 @@ const char* TutHelpers::stripFileName(const char* fullFileName)
     return fullFileName;
 }
 
-const char* TutHelpers::errorMessage(int lineNumber, const char* what)
+std::string TutHelpers::errorMessage(int lineNumber, const std::string& what)
 {
     std::stringstream ss;
     ss << "Line " << lineNumber << ", " << what;
-    
-    return ss.str().c_str();
+
+    return ss.str();
 }

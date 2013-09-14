@@ -3,6 +3,8 @@
 
 #include <tut/tut.hpp>
 
+#include <string>
+
 class TutHelpers
 {
 public:
@@ -10,7 +12,7 @@ public:
     static const char* stripFileName(const char* fullFileName);
     
     // Formatted error messages.
-    static const char* errorMessage(int lineNumber, const char* what = 0);
+    static std::string errorMessage(int lineNumber, const std::string& what = 0);
 };
 
 // Macro to define the basic stuff to make TUT tests.
@@ -34,6 +36,5 @@ public:
 #define VALUES_EQUAL(A, B) (ensure_equals(ERR_MSG("Values not equal"), A, B))
 #define DOUBLES_EQUAL(A, B, EPSILON) \
     (ensure_equals(ERR_MSG("Doubles not equal"), A, B, EPSILON))
-
 
 #endif
