@@ -26,80 +26,11 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-
 template <int DIM, typename T>
-class Determinant;
-
-template <typename T>
-class Determinant<4, T>
-{
-public:
-    static T compute(const Matrix<4, T>& a)
-    {
-        return a[0] * a[3] -
-               a[1] * a[2];
-    }
-};
-
-template <typename T>
-class Determinant<9, T>
-{
-public:
-    static T compute(const Matrix<9, T>& a)
-    {
-        return a[0] * a[4] * a[8] +
-               a[1] * a[5] * a[6] +
-               a[2] * a[3] * a[7] -
-               a[2] * a[4] * a[6] -
-               a[1] * a[3] * a[8] -
-               a[0] * a[5] * a[7];
-    }
-};
-
-template <typename T>
-class Determinant<16, T>
-{
-public:
-    static T compute(const Matrix<16, T>& a)
-    {
-        return a[ 0] * a[ 6] * a[11] * a[13] +
-               a[ 0] * a[ 7] * a[ 9] * a[14] +
-               a[ 1] * a[ 4] * a[11] * a[14] +
-               a[ 1] * a[ 6] * a[ 8] * a[15] +
-               a[ 1] * a[ 7] * a[10] * a[12] +
-               a[ 2] * a[ 4] * a[ 9] * a[15] +
-               a[ 2] * a[ 5] * a[11] * a[12] +
-               a[ 2] * a[ 7] * a[ 8] * a[13] +
-               a[ 3] * a[ 4] * a[10] * a[13] +
-               a[ 3] * a[ 5] * a[ 8] * a[14] +
-               a[ 3] * a[ 6] * a[ 9] * a[12] +
-               a[ 0] * a[ 5] * a[10] * a[15] -
-               a[ 0] * a[ 5] * a[11] * a[14] -
-               a[ 0] * a[ 6] * a[ 9] * a[15] -
-               a[ 0] * a[ 7] * a[10] * a[13] -
-               a[ 1] * a[ 4] * a[10] * a[15] -
-               a[ 1] * a[ 6] * a[11] * a[12] -
-               a[ 1] * a[ 7] * a[ 8] * a[14] -
-               a[ 2] * a[ 4] * a[11] * a[13] -
-               a[ 2] * a[ 5] * a[ 8] * a[15] -
-               a[ 2] * a[ 7] * a[ 9] * a[12] -
-               a[ 3] * a[ 5] * a[10] * a[12] -
-               a[ 3] * a[ 6] * a[ 8] * a[13] -
-               a[ 3] * a[ 4] * a[ 9] * a[14];
-    }
-};
-
-}
-
-template <int DIM, typename T>
-inline
-T Determinant(const Matrix<DIM, T>& a)
-{
-    return Priv::Determinant<DIM, T>::compute(a);
-}
+T Determinant(const Matrix<DIM, T>& a);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Determinant.inl>
 
 #endif
