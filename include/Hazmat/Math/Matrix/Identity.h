@@ -26,80 +26,11 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-
 template <int DIM, typename T>
-class Identity;
-
-template <typename T>
-class Identity<4, T>
-{
-public:
-    static Matrix<4, T>& set(Matrix<4, T>& a)
-    {
-        a[0] = static_cast<T>(1);
-        a[1] = T();
-        a[2] = T();
-        a[3] = static_cast<T>(1);
-        return a;
-    }
-};
-
-template <typename T>
-class Identity<9, T>
-{
-public:
-    static Matrix<9, T>& set(Matrix<9, T>& a)
-    {
-        a[0] = static_cast<T>(1);
-        a[1] = T();
-        a[2] = T();
-        a[3] = T();
-        a[4] = static_cast<T>(1);
-        a[5] = T();
-        a[6] = T();
-        a[7] = T();
-        a[8] = static_cast<T>(1);
-        return a;
-    }
-};
-
-template <typename T>
-class Identity<16, T>
-{
-public:
-    static Matrix<16, T>& set(Matrix<16, T>& a)
-    {
-        a[ 0] = static_cast<T>(1);
-        a[ 1] = T();
-        a[ 2] = T();
-        a[ 3] = T();
-        a[ 4] = T();
-        a[ 5] = static_cast<T>(1);
-        a[ 6] = T();
-        a[ 7] = T();
-        a[ 8] = T();
-        a[ 9] = T();
-        a[10] = static_cast<T>(1);
-        a[11] = T();
-        a[12] = T();
-        a[13] = T();
-        a[14] = T();
-        a[15] = static_cast<T>(1);
-        return a;
-    }
-};
-
-}
-
-template <int DIM, typename T>
-inline
-Matrix<DIM, T>& Identity(Matrix<DIM, T>& a)
-{
-    return Priv::Identity<DIM, T>::set(a);
-}
+Matrix<DIM, T>& Identity(Matrix<DIM, T>& a);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Identity.inl>
 
 #endif
