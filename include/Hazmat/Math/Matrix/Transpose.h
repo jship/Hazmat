@@ -101,7 +101,7 @@ public:
 
 template <int DIM, typename T>
 inline
-Matrix<DIM, T>& Transpose(const Matrix<16, T>& a, Matrix<16, T>& b)
+Matrix<DIM, T>& Transpose(const Matrix<DIM, T>& a, Matrix<DIM, T>& b)
 {
     return Priv::Transpose<DIM, T>::compute(a, b);
 }

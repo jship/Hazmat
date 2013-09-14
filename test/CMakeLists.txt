@@ -16,6 +16,7 @@ SET(SOURCES
     Matrix/TestIdentity.cpp
     Matrix/TestInvert.cpp
     Matrix/TestMatrix.cpp
+    Matrix/TestTranspose.cpp
     
     # Unit Tests for Quaternion
     Quaternion/TestQuaternion.cpp
