@@ -22,8 +22,7 @@
 #ifndef HAZMAT_MATH_VECTOR_NORM_H
 #define HAZMAT_MATH_VECTOR_NORM_H
 
-#include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/SquaredLength.h>
+#include <Hazmat/Types/Vector.h>
 
 BEGIN_HAZMAT_NAMESPACE
 

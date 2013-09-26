@@ -19,15 +19,18 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_MATRIX_INVERT_H
-#define HAZMAT_MATH_MATRIX_INVERT_H
+#ifndef HAZMAT_MATH_MATRIX_COFACTOR_H
+#define HAZMAT_MATH_MATRIX_COFACTOR_H
+
+#include <Hazmat/Types/Matrix.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-}
+template <int DIM, typename T>
+void Cofactor(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Cofactor.inl>
 
 #endif

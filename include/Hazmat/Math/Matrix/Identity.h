@@ -27,7 +27,7 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-Matrix<DIM, T>& Identity(Matrix<DIM, T>& a);
+void Identity(Matrix<DIM, T>& a);
 
 END_HAZMAT_NAMESPACE
 

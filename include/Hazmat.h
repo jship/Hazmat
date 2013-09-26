@@ -31,7 +31,7 @@
 
 #include <Hazmat/Math/Matrix/Determinant.h>
 #include <Hazmat/Math/Matrix/Identity.h>
-#include <Hazmat/Math/Matrix/Invert.h>
+#include <Hazmat/Math/Matrix/Inverse.h>
 #include <Hazmat/Math/Matrix/Transpose.h>
 
 #include <Hazmat/Math/Vector/Add.h>

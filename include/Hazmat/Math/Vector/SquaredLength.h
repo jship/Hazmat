@@ -22,7 +22,7 @@
 #ifndef HAZMAT_MATH_VECTOR_SQUAREDLENGTH_H
 #define HAZMAT_MATH_VECTOR_SQUAREDLENGTH_H
 
-#include <Hazmat/Math/Vector/Dot.h>
+#include <Hazmat/Types/Vector.h>
 
 BEGIN_HAZMAT_NAMESPACE
 

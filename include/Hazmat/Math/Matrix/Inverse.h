@@ -19,20 +19,18 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_SQUAREDLENGTH_INL
-#define HAZMAT_MATH_VECTOR_SQUAREDLENGTH_INL
+#ifndef HAZMAT_MATH_MATRIX_INVERSE_H
+#define HAZMAT_MATH_MATRIX_INVERSE_H
 
-#include <Hazmat/Math/Vector/Dot.h>
+#include <Hazmat/Types/Matrix.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-inline
-T SquaredLength(const Vector<DIM, T>& u)
-{
-    return Dot(u, u);
-}
+void Inverse(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Inverse.inl>
 
 #endif

@@ -27,7 +27,7 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-Matrix<DIM, T>& Transpose(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
+void Transpose(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
 

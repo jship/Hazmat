@@ -22,6 +22,9 @@
 #ifndef HAZMAT_MATH_VECTOR_NORM_INL
 #define HAZMAT_MATH_VECTOR_NORM_INL
 
+#include <Hazmat/Math/Vector/Scale.h>
+#include <Hazmat/Math/Vector/SquaredLength.h>
+
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>

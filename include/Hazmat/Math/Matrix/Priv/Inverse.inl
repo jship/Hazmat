@@ -19,8 +19,11 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_MATRIX_TRANSPOSE_INL
-#define HAZMAT_MATH_MATRIX_TRANSPOSE_INL
+#ifndef HAZMAT_MATH_MATRIX_INVERSE_INL
+#define HAZMAT_MATH_MATRIX_INVERSE_INL
+
+#include <Hazmat/Math/Matrix/Determinant.h>
+#include <Hazmat/Math/Matrix/Identity.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
@@ -28,10 +31,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Transpose;
+class Inverse;
 
 template <typename T>
-class Transpose<4, T>
+class Inverse<4, T>
 {
 public:
     static void compute(const Matrix<4, T>& a, Matrix<4, T>& b)
@@ -46,7 +49,7 @@ public:
 };
 
 template <typename T>
-class Transpose<9, T>
+class Inverse<9, T>
 {
 public:
     static void compute(const Matrix<9, T>& a, Matrix<9, T>& b)
@@ -66,29 +69,44 @@ public:
 };
 
 template <typename T>
-class Transpose<16, T>
+class Inverse<16, T>
 {
 public:
     static void compute(const Matrix<16, T>& a, Matrix<16, T>& b)
     {
-        T uy = a[1], uz = a[2], uw = a[3], vz = a[6], vw = a[7], ww = a[11];
+        // For use elsewhere.
+        /*
+        T ux = a[0], vx = a[4], wx = a[ 8], cx = a[12];
+        T uy = a[1], vy = a[5], wy = a[ 9], cy = a[13];
+        T uz = a[2], vz = a[6], wz = a[10], cz = a[14];
+        T uw = a[3], vw = a[7], ww = a[11], cw = a[15];
+        */
 
-        b[ 0] = a[ 0];
-        b[ 1] = a[ 4];
-        b[ 2] = a[ 8];
-        b[ 3] = a[12];
-        b[ 4] = uy;
-        b[ 5] = a[ 5];
-        b[ 6] = a[ 9];
-        b[ 7] = a[13];
-        b[ 8] = uz;
-        b[ 9] = vz;
-        b[10] = a[10];
-        b[11] = a[14];
-        b[12] = uw;
-        b[13] = vw;
-        b[14] = ww;
-        b[15] = a[15];
+        T d = Determinant(a);
+
+        if (d == T())
+        {
+            Identity(b);
+            return;
+        }
+
+
+        d = static_cast<T>(1) / d;
+
+        // TODO
+        /*
+        
+        // These two calls should be replaced with a call to Adjoint.
+        Cofactor(a, b);
+        Transpose(b, b);
+
+        for (int i = 0; i < b.dimensions; i++)
+        {
+            b[i] *= d;
+        }
+
+        */
+
     }
 };
 
@@ -96,9 +114,9 @@ public:
 
 template <int DIM, typename T>
 inline
-void Transpose(const Matrix<DIM, T>& a, Matrix<DIM, T>& b)
+void Inverse(const Matrix<DIM, T>& a, Matrix<DIM, T>& b)
 {
-    Priv::Transpose<DIM, T>::compute(a, b);
+    Priv::Inverse<DIM, T>::compute(a, b);
 }
 
 END_HAZMAT_NAMESPACE

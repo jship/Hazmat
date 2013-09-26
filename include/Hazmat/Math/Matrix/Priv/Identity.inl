@@ -34,13 +34,12 @@ template <typename T>
 class Identity<4, T>
 {
 public:
-    static Matrix<4, T>& set(Matrix<4, T>& a)
+    static void set(Matrix<4, T>& a)
     {
         a[0] = static_cast<T>(1);
         a[1] = T();
         a[2] = T();
         a[3] = static_cast<T>(1);
-        return a;
     }
 };
 
@@ -48,7 +47,7 @@ template <typename T>
 class Identity<9, T>
 {
 public:
-    static Matrix<9, T>& set(Matrix<9, T>& a)
+    static void set(Matrix<9, T>& a)
     {
         a[0] = static_cast<T>(1);
         a[1] = T();
@@ -59,7 +58,6 @@ public:
         a[6] = T();
         a[7] = T();
         a[8] = static_cast<T>(1);
-        return a;
     }
 };
 
@@ -67,7 +65,7 @@ template <typename T>
 class Identity<16, T>
 {
 public:
-    static Matrix<16, T>& set(Matrix<16, T>& a)
+    static void set(Matrix<16, T>& a)
     {
         a[ 0] = static_cast<T>(1);
         a[ 1] = T();
@@ -85,7 +83,6 @@ public:
         a[13] = T();
         a[14] = T();
         a[15] = static_cast<T>(1);
-        return a;
     }
 };
 
@@ -93,9 +90,9 @@ public:
 
 template <int DIM, typename T>
 inline
-Matrix<DIM, T>& Identity(Matrix<DIM, T>& a)
+void Identity(Matrix<DIM, T>& a)
 {
-    return Priv::Identity<DIM, T>::set(a);
+    Priv::Identity<DIM, T>::set(a);
 }
 
 END_HAZMAT_NAMESPACE
