@@ -19,38 +19,22 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_H
-#define HAZMAT_H
+#ifndef HAZMAT_MATH_MATRIX_ADJUGATE_INL
+#define HAZMAT_MATH_MATRIX_ADJUGATE_INL
 
-#include <Hazmat/Common.h>
-
-#include <Hazmat/Types/Array.h>
-#include <Hazmat/Types/Matrix.h>
-#include <Hazmat/Types/Quaternion.h>
-#include <Hazmat/Types/Vector.h>
-
-#include <Hazmat/Math/Matrix/Adjugate.h>
 #include <Hazmat/Math/Matrix/Cofactor.h>
-#include <Hazmat/Math/Matrix/Determinant.h>
-#include <Hazmat/Math/Matrix/Identity.h>
-#include <Hazmat/Math/Matrix/Invert.h>
-#include <Hazmat/Math/Matrix/Multiply.h>
-#include <Hazmat/Math/Matrix/Rotate.h>
-#include <Hazmat/Math/Matrix/Scale.h>
 #include <Hazmat/Math/Matrix/Transpose.h>
 
-#include <Hazmat/Math/Vector/Add.h>
-#include <Hazmat/Math/Vector/Cross.h>
-#include <Hazmat/Math/Vector/Dot.h>
-#include <Hazmat/Math/Vector/Length.h>
-#include <Hazmat/Math/Vector/Lerp.h>
-#include <Hazmat/Math/Vector/Negate.h>
-#include <Hazmat/Math/Vector/Norm.h>
-#include <Hazmat/Math/Vector/Rotate.h>
-#include <Hazmat/Math/Vector/Scale.h>
-#include <Hazmat/Math/Vector/Set.h>
-#include <Hazmat/Math/Vector/SquaredLength.h>
-#include <Hazmat/Math/Vector/Sub.h>
-#include <Hazmat/Math/Vector/Transform.h>
+BEGIN_HAZMAT_NAMESPACE
+
+template <int DIM, typename T>
+inline
+void Adjugate(const Matrix<DIM, T>& a, Matrix<DIM, T>& b)
+{
+    Cofactor(a, b);
+    Transpose(b, b);
+}
+
+END_HAZMAT_NAMESPACE
 
 #endif

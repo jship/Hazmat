@@ -12,6 +12,7 @@ SET(SOURCES
     Array/TestArray.cpp
 
     # Unit Tests for Matrix
+    Matrix/TestAdjugate.cpp
     Matrix/TestCofactor.cpp
     Matrix/TestDeterminant.cpp
     Matrix/TestIdentity.cpp

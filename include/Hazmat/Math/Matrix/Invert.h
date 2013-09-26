@@ -19,18 +19,18 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_MATRIX_INVERSE_H
-#define HAZMAT_MATH_MATRIX_INVERSE_H
+#ifndef HAZMAT_MATH_MATRIX_INVERT_H
+#define HAZMAT_MATH_MATRIX_INVERT_H
 
 #include <Hazmat/Types/Matrix.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-void Inverse(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
+void Invert(const Matrix<DIM, T>& a, Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
 
-#include <Hazmat/Math/Matrix/Priv/Inverse.inl>
+#include <Hazmat/Math/Matrix/Priv/Invert.inl>
 
 #endif
