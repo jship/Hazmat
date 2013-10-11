@@ -55,8 +55,8 @@ public:
                         const Vector<4, T>& v,
                               Vector<4, T>& w)
     {
-        T ux = u[X], uy = u[Y], uz = u[Z], uw = u[W];
-        T vx = v[X], vy = v[Y], vz = v[Z], vw = v[W];
+        T ux = u[X], uy = u[Y], uz = u[Z];
+        T vx = v[X], vy = v[Y], vz = v[Z];
 
         w[X] = uy * vz - uz * vy;
         w[Y] = uz * vx - ux * vz;

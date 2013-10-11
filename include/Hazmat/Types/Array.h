@@ -24,6 +24,8 @@
 
 #include <Hazmat/Common.h>
 
+#include <iostream>
+
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
@@ -72,7 +74,12 @@ template <int DIM, typename T>
 inline
 T Array<DIM, T>::operator[](int i) const
 {
-    // TODO: Debug error checking...
+    // TODO: Better error checking...
+    if (i < 0 || i >= dimensions)
+    {
+        std::cout << "ACCESS VIOLATION\n" << std::endl;
+    }
+    
     return mComponents[i];
 }
 
@@ -80,7 +87,13 @@ template <int DIM, typename T>
 inline
 T& Array<DIM, T>::operator[](int i)
 {
-    // TODO: Debug error checking...
+    // TODO: Better error checking...
+    
+    if (i < 0 || i >= dimensions)
+    {
+        std::cout << "ACCESS VIOLATION\n" << std::endl;
+    }
+    
     return mComponents[i];
 }
 

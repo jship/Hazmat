@@ -37,6 +37,7 @@
 #include <Hazmat/Math/Matrix/Multiply.h>
 #include <Hazmat/Math/Matrix/Rotate.h>
 #include <Hazmat/Math/Matrix/Scale.h>
+#include <Hazmat/Math/Matrix/Translate.h>
 #include <Hazmat/Math/Matrix/Transpose.h>
 
 #include <Hazmat/Math/Vector/Add.h>
