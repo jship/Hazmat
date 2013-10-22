@@ -23,14 +23,14 @@
 
 #include <Hazmat/Math/Vector/Scale.h>
 
-struct ScaleTestData
+struct ScaleVectorData
 {
     Vector2f u2f, v2f;
     Vector3f u3f, v3f;
     Vector4f u4f, v4f;
 };
 
-DEFINE_TEST_TYPES(ScaleTestData);
+DEFINE_TEST_TYPES(ScaleVectorData);
 
 namespace tut
 {

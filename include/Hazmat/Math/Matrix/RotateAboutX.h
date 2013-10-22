@@ -19,21 +19,19 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_MATRIX_SCALE_H
-#define HAZMAT_MATH_MATRIX_SCALE_H
+#ifndef HAZMAT_MATH_MATRIX_ROTATEABOUTX_H
+#define HAZMAT_MATH_MATRIX_ROTATEABOUTX_H
 
 #include <Hazmat/Types/Matrix.h>
-#include <Hazmat/Types/Vector.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <int MDIM, int VDIM, typename T>
-void Scale(const Matrix<MDIM, T>& a,
-           const Vector<VDIM, T>& u,
-                 Matrix<MDIM, T>& b);
+template <int DIM, typename T>
+void RotateAboutX(const Matrix<DIM, T>& a, const T radians,
+                        Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
 
-#include <Hazmat/Math/Matrix/Priv/Scale.inl>
+#include <Hazmat/Math/Matrix/Priv/RotateAboutX.inl>
 
 #endif

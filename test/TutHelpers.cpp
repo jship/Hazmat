@@ -3,6 +3,11 @@
 #include <cstring>
 #include <sstream>
 
+#include <iostream>
+
+int TutHelpers::gNextId = 0;
+std::vector<std::string> TutHelpers::mTestNames;
+
 const char* TutHelpers::stripFileName(const char* fullFileName)
 {
     int length = std::strlen(fullFileName);
@@ -25,3 +30,29 @@ std::string TutHelpers::errorMessage(int lineNumber, const std::string& what)
 
     return ss.str();
 }
+
+int TutHelpers::nextId()
+{
+    int id = gNextId;
+
+    gNextId++;
+    mTestNames.resize(gNextId);
+
+    return id;
+}
+
+const char* TutHelpers::createTestName(const char* fullFileName)
+{
+    const char* fileName = stripFileName(fullFileName);
+    int id = nextId();
+    std::stringstream ss;
+    char temp[20];
+
+    sprintf(temp, "%03d", id);
+
+    ss << temp << "_" << fileName;
+
+    mTestNames[id].assign(ss.str());
+    return mTestNames[id].c_str();
+}
+

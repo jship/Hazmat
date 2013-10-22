@@ -4,27 +4,38 @@
 #include <tut/tut.hpp>
 
 #include <string>
+#include <vector>
 
 class TutHelpers
 {
 public:
-    // Strip a full file path to just the file name and extension.
-    static const char* stripFileName(const char* fullFileName);
-    
+    // Create unique test name based on the full file path/name.
+    static const char* createTestName(const char* fullFileName);
+
     // Formatted error messages.
     static std::string errorMessage(int lineNumber, const std::string& what = 0);
+
+private:
+    // Gets the next test name id.
+    static int nextId();
+
+    // Strip a full file path to just the file name and extension.
+    static const char* stripFileName(const char* fullFileName);
+
+    static int gNextId;
+    static std::vector<std::string> mTestNames;
 };
 
 // Macro to define the basic stuff to make TUT tests.
-#define DEFINE_TEST_TYPES(TEST_DATA)                                       \
-    namespace tut                                                          \
-    {                                                                      \
-        typedef test_group<TEST_DATA> TestFactory;                         \
-        typedef TestFactory::object TestRegistry;                          \
-    }                                                                      \
-    namespace                                                              \
-    {                                                                      \
-        tut::TestFactory testFactory(TutHelpers::stripFileName(__FILE__)); \
+#define DEFINE_TEST_TYPES(TEST_DATA)                                        \
+    namespace tut                                                           \
+    {                                                                       \
+        typedef test_group<TEST_DATA> TestFactory;                          \
+        typedef TestFactory::object TestRegistry;                           \
+    }                                                                       \
+    namespace                                                               \
+    {                                                                       \
+        tut::TestFactory testFactory(TutHelpers::createTestName(__FILE__)); \
     }
 
 // Shortcut to TutHelpers::errorMessage that tacks on the line number.
