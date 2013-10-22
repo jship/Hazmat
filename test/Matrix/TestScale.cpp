@@ -23,7 +23,7 @@
 
 #include <Hazmat/Math/Matrix/Scale.h>
 
-struct ScaleMatrixData
+struct ScaleMatrixTestData
 {
     Matrix2f a2f, b2f;
     Matrix3f a3f, b3f;
@@ -34,7 +34,7 @@ struct ScaleMatrixData
     Vector4f u4f;
 };
 
-DEFINE_TEST_TYPES(ScaleMatrixData);
+DEFINE_TEST_TYPES(ScaleMatrixTestData);
 
 namespace tut
 {
