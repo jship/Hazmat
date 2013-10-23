@@ -22,12 +22,16 @@
 #ifndef HAZMAT_MATH_MATRIX_ROTATEABOUTZ_H
 #define HAZMAT_MATH_MATRIX_ROTATEABOUTZ_H
 
+#include <Hazmat/Types/Matrix.h>
+
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-}
+template <int DIM, typename T>
+void RotateAboutZ(const Matrix<DIM, T>& a, const T radians,
+                        Matrix<DIM, T>& b);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/RotateAboutZ.inl>
 
 #endif

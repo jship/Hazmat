@@ -37,6 +37,30 @@ public:
     static void compute(const Matrix<16, T>& a, const T radians,
                               Matrix<16, T>& b)
     {
+        T vx = a[4], wx = a[ 8];
+        T vy = a[5], wy = a[ 9];
+        T vz = a[6], wz = a[10];
+        T vw = a[7], ww = a[11];
+
+        T   sine = std::sin(radians);
+        T cosine = std::cos(radians);
+
+        b[ 0] = a[0];
+        b[ 1] = a[1];
+        b[ 2] = a[2];
+        b[ 3] = a[3];
+        b[ 4] =  (vx * cosine) + (wx *   sine);
+        b[ 5] =  (vy * cosine) + (wy *   sine);
+        b[ 6] =  (vz * cosine) + (wz *   sine);
+        b[ 7] =  (vw * cosine) + (ww *   sine);
+        b[ 8] = -(vx *   sine) + (wx * cosine);
+        b[ 9] = -(vy *   sine) + (wy * cosine);
+        b[10] = -(vz *   sine) + (wz * cosine);
+        b[11] = -(vw *   sine) + (ww * cosine);
+        b[12] = a[12];
+        b[13] = a[13];
+        b[14] = a[14];
+        b[15] = a[15];
     }
 };
 
