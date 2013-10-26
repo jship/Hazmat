@@ -22,12 +22,19 @@
 #ifndef HAZMAT_MATH_MATRIX_ROTATE_H
 #define HAZMAT_MATH_MATRIX_ROTATE_H
 
+#include <Hazmat/Types/Matrix.h>
+
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-}
+// axis must be a unit vector.
+template <int MDIM, int VDIM, typename T>
+void Rotate(const Matrix<MDIM, T>& a,
+            const              T   radians,
+            const Vector<VDIM, T>& axis,
+                  Matrix<MDIM, T>& b);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Rotate.inl>
 
 #endif

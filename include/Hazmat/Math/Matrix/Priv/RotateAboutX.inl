@@ -31,35 +31,58 @@ template <int DIM, typename T>
 class RotateAboutX;
 
 template <typename T>
+class RotateAboutX<9, T>
+{
+public:
+    static void compute(const Matrix<9, T>& a, const T radians,
+                              Matrix<9, T>& b)
+    {
+        T uy = a[1], vy = a[4], wy = a[7];
+        T uz = a[2], vz = a[5], wz = a[8];
+
+        T   sine = std::sin(radians);
+        T cosine = std::cos(radians);
+
+        b[0] = a[0];
+        b[1] = (cosine * uy) - (sine   * uz);
+        b[2] = (sine   * uy) + (cosine * uz);
+        b[3] = a[3];
+        b[4] = (cosine * vy) - (sine   * vz);
+        b[5] = (sine   * vy) + (cosine * vz);
+        b[6] = a[6];
+        b[7] = (cosine * wy) - (sine   * wz);
+        b[8] = (sine   * wy) + (cosine * wz);
+    }
+};
+
+template <typename T>
 class RotateAboutX<16, T>
 {
 public:
     static void compute(const Matrix<16, T>& a, const T radians,
                               Matrix<16, T>& b)
     {
-        T vx = a[4], wx = a[ 8];
-        T vy = a[5], wy = a[ 9];
-        T vz = a[6], wz = a[10];
-        T vw = a[7], ww = a[11];
+        T uy = a[ 1], vy = a[ 5], wy = a[ 9], cy = a[13];
+        T uz = a[ 2], vz = a[ 6], wz = a[10], cz = a[14];
 
         T   sine = std::sin(radians);
         T cosine = std::cos(radians);
 
-        b[ 0] = a[0];
-        b[ 1] = a[1];
-        b[ 2] = a[2];
-        b[ 3] = a[3];
-        b[ 4] =  (vx * cosine) + (wx *   sine);
-        b[ 5] =  (vy * cosine) + (wy *   sine);
-        b[ 6] =  (vz * cosine) + (wz *   sine);
-        b[ 7] =  (vw * cosine) + (ww *   sine);
-        b[ 8] = -(vx *   sine) + (wx * cosine);
-        b[ 9] = -(vy *   sine) + (wy * cosine);
-        b[10] = -(vz *   sine) + (wz * cosine);
-        b[11] = -(vw *   sine) + (ww * cosine);
+        b[ 0] = a[ 0];
+        b[ 1] = (cosine * uy) - (sine   * uz);
+        b[ 2] = (sine   * uy) + (cosine * uz);
+        b[ 3] = a[ 3];
+        b[ 4] = a[ 4];
+        b[ 5] = (cosine * vy) - (sine   * vz);
+        b[ 6] = (sine   * vy) + (cosine * vz);
+        b[ 7] = a[ 7];
+        b[ 8] = a[ 8];
+        b[ 9] = (cosine * wy) - (sine   * wz);
+        b[10] = (sine   * wy) + (cosine * wz);
+        b[11] = a[11];
         b[12] = a[12];
-        b[13] = a[13];
-        b[14] = a[14];
+        b[13] = (cosine * cy) - (sine   * cz);
+        b[14] = (sine   * cy) + (cosine * cz);
         b[15] = a[15];
     }
 };

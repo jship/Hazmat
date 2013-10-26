@@ -37,21 +37,20 @@ public:
     static void compute(const Matrix<9, T>& a, const T radians,
                               Matrix<9, T>& b)
     {
-        T ux = a[0], vx = a[4];
-        T uy = a[1], vy = a[5];
-        T uz = a[2], vz = a[6];
+        T ux = a[0], vx = a[3], wx = a[6];
+        T uy = a[1], vy = a[4], wy = a[7];
 
         T   sine = std::sin(radians);
         T cosine = std::cos(radians);
 
-        b[0] =  (ux * cosine) + (vx *   sine);
-        b[1] =  (uy * cosine) + (vy *   sine);
-        b[2] =  (uz * cosine) + (vz *   sine);
-        b[3] = -(ux *   sine) + (vx * cosine);
-        b[4] = -(uy *   sine) + (vy * cosine);
-        b[5] = -(uz *   sine) + (vz * cosine);
-        b[6] = a[6];
-        b[7] = a[7];
+        b[0] = (cosine * ux) - (sine   * uy);
+        b[1] = (sine   * ux) + (cosine * uy);
+        b[2] = a[2];
+        b[3] = (cosine * vx) - (sine   * vy);
+        b[4] = (sine   * vx) + (cosine * vy);
+        b[5] = a[5];
+        b[6] = (cosine * wx) - (sine   * wy);
+        b[7] = (sine   * wx) + (cosine * wy);
         b[8] = a[8];
     }
 };
@@ -63,28 +62,26 @@ public:
     static void compute(const Matrix<16, T>& a, const T radians,
                               Matrix<16, T>& b)
     {
-        T ux = a[0], vx = a[4];
-        T uy = a[1], vy = a[5];
-        T uz = a[2], vz = a[6];
-        T uw = a[3], vw = a[7];
+        T ux = a[0], vx = a[4], wx = a[8], cx = a[12];
+        T uy = a[1], vy = a[5], wy = a[9], cy = a[13];
 
         T   sine = std::sin(radians);
         T cosine = std::cos(radians);
 
-        b[ 0] =  (ux * cosine) + (vx *   sine);
-        b[ 1] =  (uy * cosine) + (vy *   sine);
-        b[ 2] =  (uz * cosine) + (vz *   sine);
-        b[ 3] =  (uw * cosine) + (vw *   sine);
-        b[ 4] = -(ux *   sine) + (vx * cosine);
-        b[ 5] = -(uy *   sine) + (vy * cosine);
-        b[ 6] = -(uz *   sine) + (vz * cosine);
-        b[ 7] = -(uw *   sine) + (vw * cosine);
-        b[ 8] = a[ 8];
-        b[ 9] = a[ 9];
+        b[ 0] = (cosine * ux) - (sine   * uy);
+        b[ 1] = (sine   * ux) + (cosine * uy);
+        b[ 2] = a[ 2];
+        b[ 3] = a[ 3];
+        b[ 4] = (cosine * vx) - (sine   * vy);
+        b[ 5] = (sine   * vx) + (cosine * vy);
+        b[ 6] = a[ 6];
+        b[ 7] = a[ 7];
+        b[ 8] = (cosine * wx) - (sine   * wy);
+        b[ 9] = (sine   * wx) + (cosine * wy);
         b[10] = a[10];
         b[11] = a[11];
-        b[12] = a[12];
-        b[13] = a[13];
+        b[12] = (cosine * cx) - (sine   * cy);
+        b[13] = (sine   * cx) + (cosine * cy);
         b[14] = a[14];
         b[15] = a[15];
     }
