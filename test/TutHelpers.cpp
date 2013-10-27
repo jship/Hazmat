@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-int TutHelpers::gNextId = 0;
+int TutHelpers::sNextId = 0;
 std::vector<std::string> TutHelpers::mTestNames;
 
 const char* TutHelpers::stripFileName(const char* fullFileName)
@@ -33,10 +33,10 @@ std::string TutHelpers::errorMessage(int lineNumber, const std::string& what)
 
 int TutHelpers::nextId()
 {
-    int id = gNextId;
+    int id = sNextId;
 
-    gNextId++;
-    mTestNames.resize(gNextId);
+    sNextId++;
+    mTestNames.resize(sNextId);
 
     return id;
 }

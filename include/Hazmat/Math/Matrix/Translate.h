@@ -29,7 +29,7 @@ BEGIN_HAZMAT_NAMESPACE
 
 template <int MDIM, int VDIM, typename T>
 void Translate(const Matrix<MDIM, T>& a,
-               const Vector<VDIM, T>& u,
+               const Vector<VDIM, T>& t,
                      Matrix<MDIM, T>& b);
 
 END_HAZMAT_NAMESPACE

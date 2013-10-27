@@ -35,20 +35,18 @@ class Translate<9, 2, T>
 {
 public:
     static void compute(const Matrix<9, T>& a,
-                        const Vector<2, T>& u,
+                        const Vector<2, T>& t,
                               Matrix<9, T>& b)
     {
-        T ux = a[0], vx = a[3];
-        T uy = a[1], vy = a[4];
-        T uz = a[2], vz = a[5];
-        
-        b[0] = ux; b[3] = vx;
-        b[1] = uy; b[4] = vy;
-        b[2] = uz; b[5] = vz;
-
-        b[6] = a[6] + ux * u[X] + vx * u[Y];
-        b[7] = a[7] + uy * u[X] + vy * u[Y];
-        b[8] = a[8] + uz * u[X] + vz * u[Y];
+        b[0] = a[0] + t[X] * a[2];
+        b[1] = a[1] + t[Y] * a[2];
+        b[2] = a[2];
+        b[3] = a[3] + t[X] * a[5];
+        b[4] = a[4] + t[Y] * a[5];
+        b[5] = a[5];
+        b[6] = a[6] + t[X] * a[8];
+        b[7] = a[7] + t[Y] * a[8];
+        b[8] = a[8];
     }
 };
 
@@ -57,23 +55,25 @@ class Translate<16, 3, T>
 {
 public:
     static void compute(const Matrix<16, T>& a,
-                        const Vector< 3, T>& u,
+                        const Vector< 3, T>& t,
                               Matrix<16, T>& b)
     {
-        T ux = a[0], vx = a[4], wx = a[ 8];
-        T uy = a[1], vy = a[5], wy = a[ 9];
-        T uz = a[2], vz = a[6], wz = a[10];
-        T uw = a[3], vw = a[7], ww = a[11];
-        
-        b[0] = ux; b[4] = vx; b[ 8] = wx;
-        b[1] = uy; b[5] = vy; b[ 9] = wy;
-        b[2] = uz; b[6] = vz; b[10] = wz;
-        b[3] = uw; b[7] = vw; b[11] = ww;
-
-        b[12] = a[12] + ux * u[X] + vx * u[Y] + wx * u[Z];
-        b[13] = a[13] + uy * u[X] + vy * u[Y] + wy * u[Z];
-        b[14] = a[14] + uz * u[X] + vz * u[Y] + wz * u[Z];
-        b[15] = a[15] + uw * u[X] + vw * u[Y] + ww * u[Z];
+        b[ 0] = a[ 0] + t[X] * a[ 3];
+        b[ 1] = a[ 1] + t[Y] * a[ 3];
+        b[ 2] = a[ 2] + t[Z] * a[ 3];
+        b[ 3] = a[ 3];
+        b[ 4] = a[ 4] + t[X] * a[ 7];
+        b[ 5] = a[ 5] + t[Y] * a[ 7];
+        b[ 6] = a[ 6] + t[Z] * a[ 7];
+        b[ 7] = a[ 7];
+        b[ 8] = a[ 8] + t[X] * a[11];
+        b[ 9] = a[ 9] + t[Y] * a[11];
+        b[10] = a[10] + t[Z] * a[11];
+        b[11] = a[11];
+        b[12] = a[12] + t[X] * a[15];
+        b[13] = a[13] + t[Y] * a[15];
+        b[14] = a[14] + t[Z] * a[15];
+        b[15] = a[15];
     }
 };
 
@@ -82,10 +82,10 @@ public:
 template <int MDIM, int VDIM, typename T>
 inline
 void Translate(const Matrix<MDIM, T>& a,
-               const Vector<VDIM, T>& u,
+               const Vector<VDIM, T>& t,
                      Matrix<MDIM, T>& b)
 {
-    Priv::Translate<MDIM, VDIM, T>::compute(a, u, b);
+    Priv::Translate<MDIM, VDIM, T>::compute(a, t, b);
 }
 
 END_HAZMAT_NAMESPACE

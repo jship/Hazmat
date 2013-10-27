@@ -22,7 +22,7 @@ private:
     // Strip a full file path to just the file name and extension.
     static const char* stripFileName(const char* fullFileName);
 
-    static int gNextId;
+    static int sNextId;
     static std::vector<std::string> mTestNames;
 };
 

@@ -31,6 +31,26 @@ template <int DIM, typename T>
 class RotateAboutZ;
 
 template <typename T>
+class RotateAboutZ<4, T>
+{
+public:
+    static void compute(const Matrix<9, T>& a, const T radians,
+                              Matrix<9, T>& b)
+    {
+        T ux = a[0], vx = a[2];
+        T uy = a[1], vy = a[3];
+
+        T   sine = std::sin(radians);
+        T cosine = std::cos(radians);
+
+        b[0] = (cosine * ux) - (sine   * uy);
+        b[1] = (sine   * ux) + (cosine * uy);
+        b[2] = (cosine * vx) - (sine   * vy);
+        b[3] = (sine   * vx) + (cosine * vy);
+    }
+};
+
+template <typename T>
 class RotateAboutZ<9, T>
 {
 public:
