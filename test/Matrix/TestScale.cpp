@@ -103,25 +103,25 @@ void TestRegistry::test<2>()
     DOUBLES_EQUAL(a3f[8],  9.0, 1e-5);
     
     DOUBLES_EQUAL(b3f[0],  2.0, 1e-5);
-    DOUBLES_EQUAL(b3f[1],  4.0, 1e-5);
-    DOUBLES_EQUAL(b3f[2],  6.0, 1e-5);
-    DOUBLES_EQUAL(b3f[3], 12.0, 1e-5);
+    DOUBLES_EQUAL(b3f[1],  6.0, 1e-5);
+    DOUBLES_EQUAL(b3f[2],  3.0, 1e-5);
+    DOUBLES_EQUAL(b3f[3],  8.0, 1e-5);
     DOUBLES_EQUAL(b3f[4], 15.0, 1e-5);
-    DOUBLES_EQUAL(b3f[5], 18.0, 1e-5);
-    DOUBLES_EQUAL(b3f[6],  7.0, 1e-5);
-    DOUBLES_EQUAL(b3f[7],  8.0, 1e-5);
+    DOUBLES_EQUAL(b3f[5],  6.0, 1e-5);
+    DOUBLES_EQUAL(b3f[6], 14.0, 1e-5);
+    DOUBLES_EQUAL(b3f[7], 24.0, 1e-5);
     DOUBLES_EQUAL(b3f[8],  9.0, 1e-5);
     
     jship::Hazmat::Scale(a3f, u2f, a3f);
     
     DOUBLES_EQUAL(a3f[0],  2.0, 1e-5);
-    DOUBLES_EQUAL(a3f[1],  4.0, 1e-5);
-    DOUBLES_EQUAL(a3f[2],  6.0, 1e-5);
-    DOUBLES_EQUAL(a3f[3], 12.0, 1e-5);
+    DOUBLES_EQUAL(a3f[1],  6.0, 1e-5);
+    DOUBLES_EQUAL(a3f[2],  3.0, 1e-5);
+    DOUBLES_EQUAL(a3f[3],  8.0, 1e-5);
     DOUBLES_EQUAL(a3f[4], 15.0, 1e-5);
-    DOUBLES_EQUAL(a3f[5], 18.0, 1e-5);
-    DOUBLES_EQUAL(a3f[6],  7.0, 1e-5);
-    DOUBLES_EQUAL(a3f[7],  8.0, 1e-5);
+    DOUBLES_EQUAL(a3f[5],  6.0, 1e-5);
+    DOUBLES_EQUAL(a3f[6], 14.0, 1e-5);
+    DOUBLES_EQUAL(a3f[7], 24.0, 1e-5);
     DOUBLES_EQUAL(a3f[8],  9.0, 1e-5);
 }
 
@@ -164,39 +164,39 @@ void TestRegistry::test<3>()
     DOUBLES_EQUAL(a4f[15], 16.0, 1e-5);
     
     DOUBLES_EQUAL(b4f[ 0],  2.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 1],  4.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 2],  6.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 3],  8.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 4], 15.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 1],  6.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 2], 12.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 3],  4.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 4], 10.0, 1e-5);
     DOUBLES_EQUAL(b4f[ 5], 18.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 6], 21.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 7], 24.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 8], 36.0, 1e-5);
-    DOUBLES_EQUAL(b4f[ 9], 40.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 6], 28.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 7],  8.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 8], 18.0, 1e-5);
+    DOUBLES_EQUAL(b4f[ 9], 30.0, 1e-5);
     DOUBLES_EQUAL(b4f[10], 44.0, 1e-5);
-    DOUBLES_EQUAL(b4f[11], 48.0, 1e-5);
-    DOUBLES_EQUAL(b4f[12], 13.0, 1e-5);
-    DOUBLES_EQUAL(b4f[13], 14.0, 1e-5);
-    DOUBLES_EQUAL(b4f[14], 15.0, 1e-5);
+    DOUBLES_EQUAL(b4f[11], 12.0, 1e-5);
+    DOUBLES_EQUAL(b4f[12], 26.0, 1e-5);
+    DOUBLES_EQUAL(b4f[13], 42.0, 1e-5);
+    DOUBLES_EQUAL(b4f[14], 60.0, 1e-5);
     DOUBLES_EQUAL(b4f[15], 16.0, 1e-5);
     
     jship::Hazmat::Scale(a4f, u3f, a4f);
     
     DOUBLES_EQUAL(a4f[ 0],  2.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 1],  4.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 2],  6.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 3],  8.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 4], 15.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 1],  6.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 2], 12.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 3],  4.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 4], 10.0, 1e-5);
     DOUBLES_EQUAL(a4f[ 5], 18.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 6], 21.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 7], 24.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 8], 36.0, 1e-5);
-    DOUBLES_EQUAL(a4f[ 9], 40.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 6], 28.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 7],  8.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 8], 18.0, 1e-5);
+    DOUBLES_EQUAL(a4f[ 9], 30.0, 1e-5);
     DOUBLES_EQUAL(a4f[10], 44.0, 1e-5);
-    DOUBLES_EQUAL(a4f[11], 48.0, 1e-5);
-    DOUBLES_EQUAL(a4f[12], 13.0, 1e-5);
-    DOUBLES_EQUAL(a4f[13], 14.0, 1e-5);
-    DOUBLES_EQUAL(a4f[14], 15.0, 1e-5);
+    DOUBLES_EQUAL(a4f[11], 12.0, 1e-5);
+    DOUBLES_EQUAL(a4f[12], 26.0, 1e-5);
+    DOUBLES_EQUAL(a4f[13], 42.0, 1e-5);
+    DOUBLES_EQUAL(a4f[14], 60.0, 1e-5);
     DOUBLES_EQUAL(a4f[15], 16.0, 1e-5);
 }
 
