@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Subtraction;
+class VectorSubtraction;
 
 template <typename T>
-class Subtraction<2, T>
+class VectorSubtraction<2, T>
 {
 public:
     static void compute(const Vector<2, T>& u,
@@ -44,7 +44,7 @@ public:
 };
 
 template <typename T>
-class Subtraction<3, T>
+class VectorSubtraction<3, T>
 {
 public:
     static void compute(const Vector<3, T>& u,
@@ -58,7 +58,7 @@ public:
 };
 
 template <typename T>
-class Subtraction<4, T>
+class VectorSubtraction<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u,
@@ -80,7 +80,7 @@ void Sub(const Vector<DIM, T>& u,
          const Vector<DIM, T>& v,
                Vector<DIM, T>& w)
 {
-    Priv::Subtraction<DIM, T>::compute(u, v, w);
+    Priv::VectorSubtraction<DIM, T>::compute(u, v, w);
 }
 
 template <int DIM, typename T>

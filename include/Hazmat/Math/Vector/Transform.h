@@ -33,16 +33,8 @@ void Transform(const Matrix<MDIM, T>& m,
                      Vector<VDIM, T>& v);
 
 template <int MDIM, int VDIM, typename T>
-Vector<VDIM, T>& operator*=(      Vector<VDIM, T>& u,
-                            const Matrix<MDIM, T>& m);
-
-template <int MDIM, int VDIM, typename T>
 Vector<VDIM, T> operator*(const Matrix<MDIM, T>& m,
                                 Vector<VDIM, T>  u);
-
-template <int MDIM, int VDIM, typename T>
-Vector<VDIM, T> operator*(      Vector<VDIM, T>  u,
-                          const Matrix<MDIM, T>& m);
 
 END_HAZMAT_NAMESPACE
 

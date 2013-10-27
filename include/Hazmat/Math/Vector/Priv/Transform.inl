@@ -41,8 +41,8 @@ public:
     {
         T x = u[X], y = u[Y];
 
-        v[X] = x * m[0] + y * m[2];
-        v[Y] = x * m[1] + y * m[3];
+        v[X] = (m[0] * x) + (m[2] * y);
+        v[Y] = (m[1] * x) + (m[3] * y);
     }
 };
 
@@ -57,24 +57,8 @@ public:
     {
         T x = u[X], y = u[Y];
 
-        v[X] = m[6] + x * m[0] + y * m[3];
-        v[Y] = m[7] + x * m[1] + y * m[4];
-    }
-};
-
-// 4x4 * 2x1 (for convenience)
-template <typename T>
-class TransformVector<16, 2, T>
-{
-public:
-    static void compute(const Matrix<16, T>& m,
-                        const Vector< 2, T>& u,
-                              Vector< 2, T>& v)
-    {
-        T x = u[X], y = u[Y];
-
-        v[X] = m[12] + x * m[0] + y * m[4];
-        v[Y] = m[13] + x * m[1] + y * m[5];
+        v[X] = (m[0] * x) + (m[3] * y) + m[6];
+        v[Y] = (m[1] * x) + (m[4] * y) + m[7];
     }
 };
 
@@ -89,9 +73,25 @@ public:
     {
         T x = u[X], y = u[Y], z = u[Z];
 
-        v[X] = x * m[0] + y * m[3] + z * m[6];
-        v[Y] = x * m[1] + y * m[4] + z * m[7];
-        v[Z] = x * m[2] + y * m[5] + z * m[8];
+        v[X] = (m[0] * x) + (m[3] * y) + (m[6] * z);
+        v[Y] = (m[1] * x) + (m[4] * y) + (m[7] * z);
+        v[Z] = (m[2] * x) + (m[5] * y) + (m[8] * z);
+    }
+};
+
+// 4x4 * 2x1 (for convenience)
+template <typename T>
+class TransformVector<16, 2, T>
+{
+public:
+    static void compute(const Matrix<16, T>& m,
+                        const Vector< 2, T>& u,
+                              Vector< 2, T>& v)
+    {
+        T x = u[X], y = u[Y];
+
+        v[X] = (m[0] * x) + (m[4] * y) + m[12];
+        v[Y] = (m[1] * x) + (m[5] * y) + m[13];
     }
 };
 
@@ -106,9 +106,9 @@ public:
     {
         T x = u[X], y = u[Y], z = u[Z];
 
-        v[X] = m[12] + x * m[ 0] + y * m[ 4] + z * m[ 8];
-        v[Y] = m[13] + x * m[ 1] + y * m[ 5] + z * m[ 9];
-        v[Z] = m[14] + x * m[ 2] + y * m[ 6] + z * m[10];
+        v[X] = (m[ 0] * x) + (m[ 4] * y) + (m[ 8] * z) + m[12];
+        v[Y] = (m[ 1] * x) + (m[ 5] * y) + (m[ 9] * z) + m[13];
+        v[Z] = (m[ 2] * x) + (m[ 6] * y) + (m[10] * z) + m[14];
     }
 };
 
@@ -123,10 +123,10 @@ public:
     {
         T x = u[X], y = u[Y], z = u[Z], w = u[W];
 
-        v[X] = x * m[ 0] + y * m[ 4] + z * m[ 8] + w * m[12];
-        v[Y] = x * m[ 1] + y * m[ 5] + z * m[ 9] + w * m[13];
-        v[Z] = x * m[ 2] + y * m[ 6] + z * m[10] + w * m[14];
-        v[W] = x * m[ 3] + y * m[ 7] + z * m[11] + w * m[15];
+        v[X] = (m[ 0] * x) + (m[ 4] * y) + (m[ 8] * z) + (m[12] * w);
+        v[Y] = (m[ 1] * x) + (m[ 5] * y) + (m[ 9] * z) + (m[13] * w);
+        v[Z] = (m[ 2] * x) + (m[ 6] * y) + (m[10] * z) + (m[14] * w);
+        v[W] = (m[ 3] * x) + (m[ 7] * y) + (m[11] * z) + (m[15] * w);
     }
 };
 
@@ -143,28 +143,10 @@ void Transform(const Matrix<MDIM, T>& m,
 
 template <int MDIM, int VDIM, typename T>
 inline
-Vector<VDIM, T>& operator*=(      Vector<VDIM, T>& u,
-                            const Matrix<MDIM, T>& m)
-{
-    Transform(m, u, u);
-    return u;
-}
-
-template <int MDIM, int VDIM, typename T>
-inline
 Vector<VDIM, T> operator*(const Matrix<MDIM, T>& m,
                                 Vector<VDIM, T>  u)
 {
-    u *= m;
-    return u;
-}
-
-template <int MDIM, int VDIM, typename T>
-inline
-Vector<VDIM, T> operator*(      Vector<VDIM, T>  u,
-                          const Matrix<MDIM, T>& m)
-{
-    u *= m;
+    Transform(m, u, u);
     return u;
 }
 

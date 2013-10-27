@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Addition;
+class VectorAddition;
 
 template <typename T>
-class Addition<2, T>
+class VectorAddition<2, T>
 {
 public:
     static void compute(const Vector<2, T>& u,
@@ -44,7 +44,7 @@ public:
 };
 
 template <typename T>
-class Addition<3, T>
+class VectorAddition<3, T>
 {
 public:
     static void compute(const Vector<3, T>& u,
@@ -58,7 +58,7 @@ public:
 };
 
 template <typename T>
-class Addition<4, T>
+class VectorAddition<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u,
@@ -81,7 +81,7 @@ void Add(const Vector<DIM, T>& u,
          const Vector<DIM, T>& v,
                Vector<DIM, T>& w)
 {
-    Priv::Addition<DIM, T>::compute(u, v, w);
+    Priv::VectorAddition<DIM, T>::compute(u, v, w);
 }
 
 template <int DIM, typename T>

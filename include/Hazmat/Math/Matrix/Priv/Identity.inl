@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Identity;
+class MatrixIdentity;
 
 template <typename T>
-class Identity<4, T>
+class MatrixIdentity<4, T>
 {
 public:
     static void set(Matrix<4, T>& a)
@@ -44,7 +44,7 @@ public:
 };
 
 template <typename T>
-class Identity<9, T>
+class MatrixIdentity<9, T>
 {
 public:
     static void set(Matrix<9, T>& a)
@@ -62,7 +62,7 @@ public:
 };
 
 template <typename T>
-class Identity<16, T>
+class MatrixIdentity<16, T>
 {
 public:
     static void set(Matrix<16, T>& a)
@@ -92,7 +92,7 @@ template <int DIM, typename T>
 inline
 void Identity(Matrix<DIM, T>& a)
 {
-    Priv::Identity<DIM, T>::set(a);
+    Priv::MatrixIdentity<DIM, T>::set(a);
 }
 
 END_HAZMAT_NAMESPACE

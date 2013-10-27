@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Dot;
+class DotProduct;
 
 template <typename T>
-class Dot<2, T>
+class DotProduct<2, T>
 {
 public:
     static T compute(const Vector<2, T>& u, const Vector<2, T>& v)
@@ -41,7 +41,7 @@ public:
 };
 
 template <typename T>
-class Dot<3, T>
+class DotProduct<3, T>
 {
 public:
     static T compute(const Vector<3, T>& u, const Vector<3, T>& v)
@@ -51,7 +51,7 @@ public:
 };
 
 template <typename T>
-class Dot<4, T>
+class DotProduct<4, T>
 {
 public:
     static T compute(const Vector<4, T>& u, const Vector<4, T>& v)
@@ -66,7 +66,7 @@ template <int DIM, typename T>
 inline
 T Dot(const Vector<DIM, T>& u, const Vector<DIM, T>& v)
 {
-    return Priv::Dot<DIM, T>::compute(u, v);
+    return Priv::DotProduct<DIM, T>::compute(u, v);
 }
 
 END_HAZMAT_NAMESPACE

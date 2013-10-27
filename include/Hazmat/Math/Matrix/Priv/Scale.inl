@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int MDIM, int VDIM, typename T>
-class Scale;
+class MatrixScale;
 
 template <typename T>
-class Scale<4, 2, T>
+class MatrixScale<4, 2, T>
 {
 public:
     static void compute(const Matrix<4, T>& a,
@@ -46,7 +46,7 @@ public:
 };
 
 template <typename T>
-class Scale<9, 2, T>
+class MatrixScale<9, 2, T>
 {
 public:
     static void compute(const Matrix<9, T>& a,
@@ -66,7 +66,7 @@ public:
 };
 
 template <typename T>
-class Scale<16, 3, T>
+class MatrixScale<16, 3, T>
 {
 public:
     static void compute(const Matrix<16, T>& a,
@@ -100,7 +100,7 @@ void Scale(const Matrix<MDIM, T>& a,
            const Vector<VDIM, T>& u,
                  Matrix<MDIM, T>& b)
 {
-    Priv::Scale<MDIM, VDIM, T>::compute(a, u, b);
+    Priv::MatrixScale<MDIM, VDIM, T>::compute(a, u, b);
 }
 
 END_HAZMAT_NAMESPACE

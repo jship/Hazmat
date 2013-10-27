@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class LinearInterpolation;
+class VectorLerp;
 
 template <typename T>
-class LinearInterpolation<2, T>
+class VectorLerp<2, T>
 {
 public:
     static void compute(const Vector<2, T>& u,
@@ -45,7 +45,7 @@ public:
 };
 
 template <typename T>
-class LinearInterpolation<3, T>
+class VectorLerp<3, T>
 {
 public:
     static void compute(const Vector<3, T>& u,
@@ -60,7 +60,7 @@ public:
 };
 
 template <typename T>
-class LinearInterpolation<4, T>
+class VectorLerp<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u,
@@ -84,7 +84,7 @@ void Lerp(const Vector<DIM, T>& u,
                              T  t,
                 Vector<DIM, T>& w)
 {
-    Priv::LinearInterpolation<DIM, T>::compute(u, v, t, w);
+    Priv::VectorLerp<DIM, T>::compute(u, v, t, w);
 }
 
 END_HAZMAT_NAMESPACE

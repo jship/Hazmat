@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Scaling;
+class VectorScale;
 
 template <typename T>
-class Scaling<2, T>
+class VectorScale<2, T>
 {
 public:
     static void compute(const Vector<2, T>& u, T s, Vector<2, T>& v)
@@ -42,7 +42,7 @@ public:
 };
 
 template <typename T>
-class Scaling<3, T>
+class VectorScale<3, T>
 {
 public:
     static void compute(const Vector<3, T>& u, T s, Vector<3, T>& v)
@@ -54,7 +54,7 @@ public:
 };
 
 template <typename T>
-class Scaling<4, T>
+class VectorScale<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u, T s, Vector<4, T>& v)
@@ -72,7 +72,7 @@ template <int DIM, typename T>
 inline
 void Scale(const Vector<DIM, T>& u, T s, Vector<DIM, T>& v)
 {
-    Priv::Scaling<DIM, T>::compute(u, s, v);
+    Priv::VectorScale<DIM, T>::compute(u, s, v);
 }
 
 template <int DIM, typename T>

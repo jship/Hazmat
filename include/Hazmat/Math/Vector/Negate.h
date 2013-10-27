@@ -31,7 +31,7 @@ void Negate(const Vector<DIM, T>& u,
                   Vector<DIM, T>& v);
 
 template <int DIM, typename T>
-Vector<DIM, T> operator-(const Vector<DIM, T>& u);
+Vector<DIM, T> operator-(Vector<DIM, T> u);
 
 END_HAZMAT_NAMESPACE
 

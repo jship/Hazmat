@@ -28,10 +28,10 @@ namespace Priv
 {
 
 template <int DIM, typename T>
-class Negation;
+class VectorNegate;
 
 template <typename T>
-class Negation<2, T>
+class VectorNegate<2, T>
 {
 public:
     static void compute(const Vector<2, T>& u,
@@ -43,7 +43,7 @@ public:
 };
 
 template <typename T>
-class Negation<3, T>
+class VectorNegate<3, T>
 {
 public:
     static void compute(const Vector<3, T>& u,
@@ -56,7 +56,7 @@ public:
 };
 
 template <typename T>
-class Negation<4, T>
+class VectorNegate<4, T>
 {
 public:
     static void compute(const Vector<4, T>& u,
@@ -76,16 +76,15 @@ inline
 void Negate(const Vector<DIM, T>& u,
                   Vector<DIM, T>& v)
 {
-    Priv::Negation<DIM, T>::compute(u, v);
+    Priv::VectorNegate<DIM, T>::compute(u, v);
 }
 
 template <int DIM, typename T>
 inline
-Vector<DIM, T> operator-(const Vector<DIM, T>& u)
+Vector<DIM, T> operator-(Vector<DIM, T> u)
 {
-    Vector<DIM, T> v;
-    Negate(u, v);
-    return v;
+    Negate(u, u);
+    return u;
 }
 
 END_HAZMAT_NAMESPACE
