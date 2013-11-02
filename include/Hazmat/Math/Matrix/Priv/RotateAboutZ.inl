@@ -34,8 +34,8 @@ template <typename T>
 class RotateAboutZ<4, T>
 {
 public:
-    static void compute(const Matrix<9, T>& a, const T radians,
-                              Matrix<9, T>& b)
+    static void compute(const Matrix<4, T>& a, const T radians,
+                              Matrix<4, T>& b)
     {
         T ux = a[0], vx = a[2];
         T uy = a[1], vy = a[3];
@@ -112,7 +112,7 @@ public:
 template <int DIM, typename T>
 inline
 void RotateAboutZ(const Matrix<DIM, T>& a, const T radians,
-                        Matrix<DIM, T>& b);
+                        Matrix<DIM, T>& b)
 {
     Priv::RotateAboutZ<DIM, T>::compute(a, radians, b);
 }

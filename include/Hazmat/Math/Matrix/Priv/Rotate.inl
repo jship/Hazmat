@@ -31,18 +31,17 @@ template <int MDIM, int VDIM, typename T>
 class MatrixRotate;
 
 template <typename T>
-class MatrixRotate<16, 9, T>
+class MatrixRotate<16, 3, T>
 {
 public:
     static void compute(const Matrix<16, T>& a,
                         const            T   radians,
-                        const Vector< 9, T>& axis,
-                              Matrix<16, T>& b);
+                        const Vector< 3, T>& axis,
+                              Matrix<16, T>& b)
     {
-        T aux = a[ 0], avx = a[ 4], awx = a[ 8];
-        T auy = a[ 1], avy = a[ 5], awy = a[ 9];
-        T auz = a[ 2], avz = a[ 6], awz = a[10];
-        T auw = a[ 3], avw = a[ 7], aww = a[11];
+        T aux = a[ 0], avx = a[ 4], awx = a[ 8], acx = a[12];
+        T auy = a[ 1], avy = a[ 5], awy = a[ 9], acy = a[13];
+        T auz = a[ 2], avz = a[ 6], awz = a[10], acz = a[14];
         
         T   sine = std::sin(radians);
         T cosine = std::cos(radians);
@@ -88,9 +87,9 @@ inline
 void Rotate(const Matrix<MDIM, T>& a,
             const              T   radians,
             const Vector<VDIM, T>& axis,
-                  Matrix<MDIM, T>& b);
+                  Matrix<MDIM, T>& b)
 {
-    Priv::MatrixRotate<MDIM, VDIM, T>::compute(a, radians, b);
+    Priv::MatrixRotate<MDIM, VDIM, T>::compute(a, radians, axis, b);
 }
 
 END_HAZMAT_NAMESPACE

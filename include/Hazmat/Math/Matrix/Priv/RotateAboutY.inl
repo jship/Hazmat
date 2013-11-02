@@ -92,7 +92,7 @@ public:
 template <int DIM, typename T>
 inline
 void RotateAboutY(const Matrix<DIM, T>& a, const T radians,
-                        Matrix<DIM, T>& b);
+                        Matrix<DIM, T>& b)
 {
     Priv::RotateAboutY<DIM, T>::compute(a, radians, b);
 }

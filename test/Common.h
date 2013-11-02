@@ -21,4 +21,16 @@ typedef jship::Hazmat::Vector<2, float> Vector2f;
 typedef jship::Hazmat::Vector<3, float> Vector3f;
 typedef jship::Hazmat::Vector<4, float> Vector4f;
 
+inline
+float toRadians(float degrees)
+{
+    return (M_PI * degrees) / 180.0f;
+}
+
+inline
+float toDegrees(float radians)
+{
+    return (180.0f * radians) / M_PI;
+}
+
 #endif
