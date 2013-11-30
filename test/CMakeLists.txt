@@ -18,6 +18,7 @@ SET(SOURCES
     Matrix/TestIdentity.cpp
     Matrix/TestInvert.cpp
     Matrix/TestMatrix.cpp
+    Matrix/TestMultiply.cpp
     Matrix/TestRotate.cpp
     Matrix/TestRotateAboutX.cpp
     Matrix/TestRotateAboutY.cpp

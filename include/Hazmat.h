@@ -36,6 +36,9 @@
 #include <Hazmat/Math/Matrix/Invert.h>
 #include <Hazmat/Math/Matrix/Multiply.h>
 #include <Hazmat/Math/Matrix/Rotate.h>
+#include <Hazmat/Math/Matrix/RotateAboutX.h>
+#include <Hazmat/Math/Matrix/RotateAboutY.h>
+#include <Hazmat/Math/Matrix/RotateAboutZ.h>
 #include <Hazmat/Math/Matrix/Scale.h>
 #include <Hazmat/Math/Matrix/Translate.h>
 #include <Hazmat/Math/Matrix/Transpose.h>
@@ -47,7 +50,6 @@
 #include <Hazmat/Math/Vector/Lerp.h>
 #include <Hazmat/Math/Vector/Negate.h>
 #include <Hazmat/Math/Vector/Norm.h>
-#include <Hazmat/Math/Vector/Rotate.h>
 #include <Hazmat/Math/Vector/Scale.h>
 #include <Hazmat/Math/Vector/Set.h>
 #include <Hazmat/Math/Vector/SquaredLength.h>

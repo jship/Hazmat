@@ -22,12 +22,21 @@
 #ifndef HAZMAT_MATH_MATRIX_MULTIPLY_H
 #define HAZMAT_MATH_MATRIX_MULTIPLY_H
 
+#include <Hazmat/Types/Matrix.h>
+
 BEGIN_HAZMAT_NAMESPACE
 
-namespace Priv
-{
-}
+template <int DIM, typename T>
+void Multiply(const Matrix<DIM, T>& a,
+              const Matrix<DIM, T>& b,
+                    Matrix<DIM, T>& c);
+
+template <int DIM, typename T>
+Matrix<DIM, T> operator*(const Matrix<DIM, T>& a,
+                               Matrix<DIM, T>  b);
 
 END_HAZMAT_NAMESPACE
+
+#include <Hazmat/Math/Matrix/Priv/Multiply.inl>
 
 #endif
