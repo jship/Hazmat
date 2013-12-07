@@ -36,7 +36,7 @@ class VectorLerp<2, T>
 public:
     static void compute(const Vector<2, T>& u,
                         const Vector<2, T>& v,
-                                         T  t,
+                        const           T   t,
                               Vector<2, T>& w)
     {
         w[X] = u[X] + t * (v[X] - u[X]);
@@ -50,7 +50,7 @@ class VectorLerp<3, T>
 public:
     static void compute(const Vector<3, T>& u,
                         const Vector<3, T>& v,
-                                         T  t,
+                        const           T   t,
                               Vector<3, T>& w)
     {
         w[X] = u[X] + t * (v[X] - u[X]);
@@ -65,7 +65,7 @@ class VectorLerp<4, T>
 public:
     static void compute(const Vector<4, T>& u,
                         const Vector<4, T>& v,
-                                         T  t,
+                        const           T   t,
                               Vector<4, T>& w)
     {
         w[X] = u[X] + t * (v[X] - u[X]);
@@ -81,7 +81,7 @@ template <int DIM, typename T>
 inline
 void Lerp(const Vector<DIM, T>& u,
           const Vector<DIM, T>& v,
-                             T  t,
+          const             T   t,
                 Vector<DIM, T>& w)
 {
     Priv::VectorLerp<DIM, T>::compute(u, v, t, w);

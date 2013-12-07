@@ -19,21 +19,21 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_LERP_H
-#define HAZMAT_MATH_VECTOR_LERP_H
+#ifndef HAZMAT_MATH_QUATERNION_LERP_H
+#define HAZMAT_MATH_QUATERNION_LERP_H
 
-#include <Hazmat/Types/Vector.h>
+#include <Hazmat/Types/Quaternion.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <int DIM, typename T>
-void Lerp(const Vector<DIM, T>& u,
-          const Vector<DIM, T>& v,
-          const             T   t,
-                Vector<DIM, T>& w);
+template <typename T>
+void Lerp(const Quaternion<T>& p,
+          const Quaternion<T>& q,
+          const            T   t,
+                Quaternion<T>& r);
 
 END_HAZMAT_NAMESPACE
 
-#include <Hazmat/Math/Vector/Priv/Lerp.inl>
+#include <Hazmat/Math/Quaternion/Priv/Lerp.inl>
 
 #endif

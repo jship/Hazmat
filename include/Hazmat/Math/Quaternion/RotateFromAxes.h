@@ -19,21 +19,23 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_VECTOR_LERP_H
-#define HAZMAT_MATH_VECTOR_LERP_H
+#ifndef HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_H
+#define HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_H
 
+#include <Hazmat/Types/Quaternion.h>
 #include <Hazmat/Types/Vector.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-void Lerp(const Vector<DIM, T>& u,
-          const Vector<DIM, T>& v,
-          const             T   t,
-                Vector<DIM, T>& w);
+void RotateFromAxes(const  Quaternion<T>& p
+                    const Vector<DIM, T>& u, // right dir
+                    const Vector<DIM, T>& v, // up dir
+                    const Vector<DIM, T>& w, // view dir
+                           Quaternion<T>& q);
 
 END_HAZMAT_NAMESPACE
 
-#include <Hazmat/Math/Vector/Priv/Lerp.inl>
+#include <Hazmat/Math/Quaternion/Priv/RotateFromAxes.inl>
 
 #endif
