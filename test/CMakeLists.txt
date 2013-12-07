@@ -28,7 +28,13 @@ SET(SOURCES
     Matrix/TestTranspose.cpp
     
     # Unit Tests for Quaternion
+    Quaternion/TestDot.cpp
+    Quaternion/TestLength.cpp
+    Quaternion/TestLerp.cpp
+    Quaternion/TestNorm.cpp
     Quaternion/TestQuaternion.cpp
+    Quaternion/TestSet.cpp
+    Quaternion/TestSquaredLength.cpp
 
     # Unit Tests for Vector
     Vector/TestAdd.cpp

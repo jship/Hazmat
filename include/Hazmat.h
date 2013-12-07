@@ -43,6 +43,26 @@
 #include <Hazmat/Math/Matrix/Translate.h>
 #include <Hazmat/Math/Matrix/Transpose.h>
 
+#include <Hazmat/Math/Quaternion/Conjugate.h>
+#include <Hazmat/Math/Quaternion/Dot.h>
+#include <Hazmat/Math/Quaternion/Identity.h>
+#include <Hazmat/Math/Quaternion/Invert.h>
+#include <Hazmat/Math/Quaternion/Length.h>
+#include <Hazmat/Math/Quaternion/Lerp.h>
+#include <Hazmat/Math/Quaternion/Multiply.h>
+#include <Hazmat/Math/Quaternion/Norm.h>
+#include <Hazmat/Math/Quaternion/Rotate.h>
+#include <Hazmat/Math/Quaternion/RotateAboutX.h>
+#include <Hazmat/Math/Quaternion/RotateAboutY.h>
+#include <Hazmat/Math/Quaternion/RotateAboutZ.h>
+#include <Hazmat/Math/Quaternion/RotateFromAxes.h>
+#include <Hazmat/Math/Quaternion/RotateFromAxisAngle.h>
+#include <Hazmat/Math/Quaternion/RotateFromDirections.h>
+#include <Hazmat/Math/Quaternion/RotateFromMatrix.h>
+#include <Hazmat/Math/Quaternion/Set.h>
+#include <Hazmat/Math/Quaternion/Slerp.h>
+#include <Hazmat/Math/Quaternion/SquaredLength.h>
+
 #include <Hazmat/Math/Vector/Add.h>
 #include <Hazmat/Math/Vector/Cross.h>
 #include <Hazmat/Math/Vector/Dot.h>
