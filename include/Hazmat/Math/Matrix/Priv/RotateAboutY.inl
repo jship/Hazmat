@@ -37,11 +37,11 @@ public:
     static void compute(const Matrix<9, T>& a, const T radians,
                               Matrix<9, T>& b)
     {
-        T ux = a[0], vx = a[3], wx = a[6];
-        T uz = a[2], vz = a[5], wz = a[8];
+        const T ux = a[0], vx = a[3], wx = a[6];
+        const T uz = a[2], vz = a[5], wz = a[8];
 
-        T   sine = std::sin(radians);
-        T cosine = std::cos(radians);
+        const T   sine = std::sin(radians);
+        const T cosine = std::cos(radians);
 
         b[0] = (cosine * ux) + (sine   * uz);
         b[1] = a[1];
@@ -62,11 +62,11 @@ public:
     static void compute(const Matrix<16, T>& a, const T radians,
                               Matrix<16, T>& b)
     {
-        T ux = a[ 0], vx = a[ 4], wx = a[ 8], cx = a[12];
-        T uz = a[ 2], vz = a[ 6], wz = a[10], cz = a[14];
+        const T ux = a[ 0], vx = a[ 4], wx = a[ 8], cx = a[12];
+        const T uz = a[ 2], vz = a[ 6], wz = a[10], cz = a[14];
 
-        T   sine = std::sin(radians);
-        T cosine = std::cos(radians);
+        const T   sine = std::sin(radians);
+        const T cosine = std::cos(radians);
 
         b[ 0] = (cosine * ux) + (sine   * uz);
         b[ 1] = a[ 1];

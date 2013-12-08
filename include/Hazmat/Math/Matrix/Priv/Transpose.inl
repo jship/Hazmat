@@ -36,7 +36,7 @@ class Transpose<4, T>
 public:
     static void compute(const Matrix<4, T>& a, Matrix<4, T>& b)
     {
-        T uy = a[1];
+        const T uy = a[1];
 
         b[0] = a[0];
         b[1] = a[2];
@@ -51,7 +51,7 @@ class Transpose<9, T>
 public:
     static void compute(const Matrix<9, T>& a, Matrix<9, T>& b)
     {
-        T uy = a[1], uz = a[2], vz = a[5];
+        const T uy = a[1], uz = a[2], vz = a[5];
 
         b[0] = a[0];
         b[1] = a[3];
@@ -71,7 +71,7 @@ class Transpose<16, T>
 public:
     static void compute(const Matrix<16, T>& a, Matrix<16, T>& b)
     {
-        T uy = a[1], uz = a[2], uw = a[3], vz = a[6], vw = a[7], ww = a[11];
+        const T uy = a[1], uz = a[2], uw = a[3], vz = a[6], vw = a[7], ww = a[11];
 
         b[ 0] = a[ 0];
         b[ 1] = a[ 4];

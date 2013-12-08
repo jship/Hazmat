@@ -19,19 +19,27 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_ROTATEABOUTX_INL
+#define HAZMAT_MATH_QUATERNION_ROTATEABOUTX_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void RotateAboutX(const Quaternion<T>& p, const T radians,
+                        Quaternion<T>& q)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    const T halfAngleRad = static_cast<T>(0.5) * radians;
+
+    const T px = p[0], qx = std::sin(halfAngleRad);
+    const T py = p[1];
+    const T pz = p[2];
+    const T pw = p[3], qw = std::cos(halfAngleRad);
+        
+    r[0] = (pw * qx) + (qw * px);
+    r[1] = (qw * py) + (pz * qx);
+    r[2] = (qw * pz) - (py * qx);
+    r[3] = (pw * qw) - (px * qx);
 }
 
 END_HAZMAT_NAMESPACE

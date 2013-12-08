@@ -37,8 +37,8 @@ public:
     template <typename TX, typename TY>
     static void assign(TX x, TY y, Vector<2, T>& u)
     {
-        u[X] = x;
-        u[Y] = y;
+        u[X] = static_cast<T>(x);
+        u[Y] = static_cast<T>(y);
     }
 };
 
@@ -49,9 +49,9 @@ public:
     template <typename TX, typename TY, typename TZ>
     static void assign(TX x, TY y, TZ z, Vector<3, T>& u)
     {
-        u[X] = x;
-        u[Y] = y;
-        u[Z] = z;
+        u[X] = static_cast<T>(x);
+        u[Y] = static_cast<T>(y);
+        u[Z] = static_cast<T>(z);
     }
 };
 
@@ -62,10 +62,10 @@ public:
     template <typename TX, typename TY, typename TZ, typename TW>
     static void assign(TX x, TY y, TZ z, TW w, Vector<4, T>& u)
     {
-        u[X] = x;
-        u[Y] = y;
-        u[Z] = z;
-        u[W] = w;
+        u[X] = static_cast<T>(x);
+        u[Y] = static_cast<T>(y);
+        u[Z] = static_cast<T>(z);
+        u[W] = static_cast<T>(w);
     }
 };
 

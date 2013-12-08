@@ -19,19 +19,19 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_CONJUGATE_INL
+#define HAZMAT_MATH_QUATERNION_CONJUGATE_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void Conjugate(const Quaternion<T>& p, Quaternion<T>& q)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    q[0] = -p[0];
+    q[1] = -p[1];
+    q[2] = -p[2];
+    q[3] =  p[3];
 }
 
 END_HAZMAT_NAMESPACE

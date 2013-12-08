@@ -36,8 +36,8 @@ class Cofactor<4, T>
 public:
     static void compute(const Matrix<4, T>& a, Matrix<4, T>& b)
     {
-        T ux = a[0], vx = a[2];
-        T uy = a[1], vy = a[3];
+        const T ux = a[0], vx = a[2];
+        const T uy = a[1], vy = a[3];
         
         b[0] =  vy;
         b[1] = -vx;
@@ -52,9 +52,9 @@ class Cofactor<9, T>
 public:
     static void compute(const Matrix<9, T>& a, Matrix<9, T>& b)
     {
-        T ux = a[0], vx = a[3], wx = a[6];
-        T uy = a[1], vy = a[4], wy = a[7];
-        T uz = a[2], vz = a[5], wz = a[8];
+        const T ux = a[0], vx = a[3], wx = a[6];
+        const T uy = a[1], vy = a[4], wy = a[7];
+        const T uz = a[2], vz = a[5], wz = a[8];
         
         b[0] = vy * wz - vz * wy;
         b[1] = vz * wx - vx * wz;
@@ -74,10 +74,10 @@ class Cofactor<16, T>
 public:
     static void compute(const Matrix<16, T>& a, Matrix<16, T>& b)
     {
-        T ux = a[0], vx = a[4], wx = a[ 8], cx = a[12];
-        T uy = a[1], vy = a[5], wy = a[ 9], cy = a[13];
-        T uz = a[2], vz = a[6], wz = a[10], cz = a[14];
-        T uw = a[3], vw = a[7], ww = a[11], cw = a[15];
+        const T ux = a[0], vx = a[4], wx = a[ 8], cx = a[12];
+        const T uy = a[1], vy = a[5], wy = a[ 9], cy = a[13];
+        const T uz = a[2], vz = a[6], wz = a[10], cz = a[14];
+        const T uw = a[3], vw = a[7], ww = a[11], cw = a[15];
         
         b[ 0] =  (vy*wz*cw) - (vy*ww*cz) - (vz*wy*cw) + (vz*ww*cy) + (vw*wy*cz) - (vw*wz*cy);
         b[ 1] = -(vx*wz*cw) + (vx*ww*cz) + (vz*wx*cw) - (vz*ww*cx) - (vw*wx*cz) + (vw*wz*cx);

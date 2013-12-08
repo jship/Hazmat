@@ -39,7 +39,7 @@ public:
                         const Vector<2, T>& u,
                               Vector<2, T>& v)
     {
-        T x = u[X], y = u[Y];
+        const T x = u[X], y = u[Y];
 
         v[X] = (m[0] * x) + (m[2] * y);
         v[Y] = (m[1] * x) + (m[3] * y);
@@ -55,7 +55,7 @@ public:
                         const Vector<2, T>& u,
                               Vector<2, T>& v)
     {
-        T x = u[X], y = u[Y];
+        const T x = u[X], y = u[Y];
 
         v[X] = (m[0] * x) + (m[3] * y) + m[6];
         v[Y] = (m[1] * x) + (m[4] * y) + m[7];
@@ -71,7 +71,7 @@ public:
                         const Vector<3, T>& u,
                               Vector<3, T>& v)
     {
-        T x = u[X], y = u[Y], z = u[Z];
+        const T x = u[X], y = u[Y], z = u[Z];
 
         v[X] = (m[0] * x) + (m[3] * y) + (m[6] * z);
         v[Y] = (m[1] * x) + (m[4] * y) + (m[7] * z);
@@ -88,7 +88,7 @@ public:
                         const Vector< 2, T>& u,
                               Vector< 2, T>& v)
     {
-        T x = u[X], y = u[Y];
+        const T x = u[X], y = u[Y];
 
         v[X] = (m[0] * x) + (m[4] * y) + m[12];
         v[Y] = (m[1] * x) + (m[5] * y) + m[13];
@@ -104,7 +104,7 @@ public:
                         const Vector< 3, T>& u,
                               Vector< 3, T>& v)
     {
-        T x = u[X], y = u[Y], z = u[Z];
+        const T x = u[X], y = u[Y], z = u[Z];
 
         v[X] = (m[ 0] * x) + (m[ 4] * y) + (m[ 8] * z) + m[12];
         v[Y] = (m[ 1] * x) + (m[ 5] * y) + (m[ 9] * z) + m[13];
@@ -121,7 +121,7 @@ public:
                         const Vector< 4, T>& u,
                               Vector< 4, T>& v)
     {
-        T x = u[X], y = u[Y], z = u[Z], w = u[W];
+        const T x = u[X], y = u[Y], z = u[Z], w = u[W];
 
         v[X] = (m[ 0] * x) + (m[ 4] * y) + (m[ 8] * z) + (m[12] * w);
         v[Y] = (m[ 1] * x) + (m[ 5] * y) + (m[ 9] * z) + (m[13] * w);

@@ -26,6 +26,8 @@
 
 BEGIN_HAZMAT_NAMESPACE
 
+// Combine rotations such that r represents a rotation first by p, then by q.
+// This is just q * p.
 template <typename T>
 void Rotate(const Quaternion<T>& p,
             const Quaternion<T>& q,

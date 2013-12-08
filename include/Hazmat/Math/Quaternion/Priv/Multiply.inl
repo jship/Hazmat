@@ -19,19 +19,35 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_MULTIPLY_INL
+#define HAZMAT_MATH_QUATERNION_MULTIPLY_INL
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void Multiply(const Quaternion<T>& p,
+              const Quaternion<T>& q,
+                    Quaternion<T>& r)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    const T px = p[0], qx = q[0];
+    const T py = p[1], qy = q[1];
+    const T pz = p[2], qz = q[2];
+    const T pw = p[3], qw = q[3];
+        
+    r[0] = (pw * qx) + (qw * px) + (py * qz - pz * qy);
+    r[1] = (pw * qy) + (qw * py) + (pz * qx - px * qz);
+    r[2] = (pw * qz) + (qw * pz) + (px * qy - py * qx);
+    r[3] = (pw * qw) - (px * qx + py * qy + pz * qz);
+}
+
+template <typename T>
+inline
+Quaternion<T> operator*(const Quaternion<T>& p,
+                              Quaternion<T>  q)
+{
+    Multiply(p, q, q);
+    return q;
 }
 
 END_HAZMAT_NAMESPACE

@@ -19,19 +19,20 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_ROTATE_INL
+#define HAZMAT_MATH_QUATERNION_ROTATE_INL
+
+#include <Hazmat/Math/Quaternion/Multiply.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void Rotate(const Quaternion<T>& p,
+            const Quaternion<T>& q,
+                  Quaternion<T>& r)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    Multiply(q, p, r);
 }
 
 END_HAZMAT_NAMESPACE

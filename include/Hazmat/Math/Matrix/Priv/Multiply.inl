@@ -38,11 +38,11 @@ public:
                         const Matrix<4, T>& b,
                               Matrix<4, T>& c)
     {
-        T aux = a[0], avx = a[2];
-        T auy = a[1], avy = a[3];
+        const T aux = a[0], avx = a[2];
+        const T auy = a[1], avy = a[3];
         
-        T bux = b[0], bvx = b[2];
-        T buy = b[1], bvy = b[3];
+        const T bux = b[0], bvx = b[2];
+        const T buy = b[1], bvy = b[3];
 
         c[0] = (aux * bux) + (avx * buy);
         c[1] = (auy * bux) + (avy * buy);
@@ -59,13 +59,13 @@ public:
                         const Matrix<9, T>& b,
                               Matrix<9, T>& c)
     {
-        T aux = a[0], avx = a[3], awx = a[6];
-        T auy = a[1], avy = a[4], awy = a[7];
-        T auz = a[2], avz = a[5], awz = a[8];
+        const T aux = a[0], avx = a[3], awx = a[6];
+        const T auy = a[1], avy = a[4], awy = a[7];
+        const T auz = a[2], avz = a[5], awz = a[8];
         
-        T bux = b[0], bvx = b[3], bwx = b[6];
-        T buy = b[1], bvy = b[4], bwy = b[7];
-        T buz = b[2], bvz = b[5], bwz = b[8];
+        const T bux = b[0], bvx = b[3], bwx = b[6];
+        const T buy = b[1], bvy = b[4], bwy = b[7];
+        const T buz = b[2], bvz = b[5], bwz = b[8];
 
         c[0] = (aux * bux) + (avx * buy) + (awx * buz);
         c[1] = (auy * bux) + (avy * buy) + (awy * buz);
@@ -87,15 +87,15 @@ public:
                         const Matrix<16, T>& b,
                               Matrix<16, T>& c)
     {
-        T aux = a[0], avx = a[4], awx = a[ 8], acx = a[12];
-        T auy = a[1], avy = a[5], awy = a[ 9], acy = a[13];
-        T auz = a[2], avz = a[6], awz = a[10], acz = a[14];
-        T auw = a[3], avw = a[7], aww = a[11], acw = a[15];
+        const T aux = a[0], avx = a[4], awx = a[ 8], acx = a[12];
+        const T auy = a[1], avy = a[5], awy = a[ 9], acy = a[13];
+        const T auz = a[2], avz = a[6], awz = a[10], acz = a[14];
+        const T auw = a[3], avw = a[7], aww = a[11], acw = a[15];
         
-        T bux = b[0], bvx = b[4], bwx = b[ 8], bcx = b[12];
-        T buy = b[1], bvy = b[5], bwy = b[ 9], bcy = b[13];
-        T buz = b[2], bvz = b[6], bwz = b[10], bcz = b[14];
-        T buw = b[3], bvw = b[7], bww = b[11], bcw = b[15];
+        const T bux = b[0], bvx = b[4], bwx = b[ 8], bcx = b[12];
+        const T buy = b[1], bvy = b[5], bwy = b[ 9], bcy = b[13];
+        const T buz = b[2], bvz = b[6], bwz = b[10], bcz = b[14];
+        const T buw = b[3], bvw = b[7], bww = b[11], bcw = b[15];
 
         c[ 0] = (aux * bux) + (avx * buy) + (awx * buz) + (acx * buw);
         c[ 1] = (auy * bux) + (avy * buy) + (awy * buz) + (acy * buw);

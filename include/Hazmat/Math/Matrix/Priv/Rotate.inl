@@ -39,27 +39,27 @@ public:
                         const Vector< 3, T>& axis,
                               Matrix<16, T>& b)
     {
-        T aux = a[ 0], avx = a[ 4], awx = a[ 8], acx = a[12];
-        T auy = a[ 1], avy = a[ 5], awy = a[ 9], acy = a[13];
-        T auz = a[ 2], avz = a[ 6], awz = a[10], acz = a[14];
+        const T aux = a[ 0], avx = a[ 4], awx = a[ 8], acx = a[12];
+        const T auy = a[ 1], avy = a[ 5], awy = a[ 9], acy = a[13];
+        const T auz = a[ 2], avz = a[ 6], awz = a[10], acz = a[14];
         
-        T   sine = std::sin(radians);
-        T cosine = std::cos(radians);
-        T cosTo1 = 1 - cosine;
+        const T   sine = std::sin(radians);
+        const T cosine = std::cos(radians);
+        const T cosTo1 = 1 - cosine;
         
-        T axisX = axis[X];
-        T axisY = axis[Y];
-        T axisZ = axis[Z];
+        const T axisX = axis[X];
+        const T axisY = axis[Y];
+        const T axisZ = axis[Z];
     
-        T rux = (cosTo1 * axisX * axisX) + cosine;
-        T ruy = (cosTo1 * axisX * axisY) +  (sine * axisZ);
-        T ruz = (cosTo1 * axisX * axisZ) -  (sine * axisY);
-        T rvx = (cosTo1 * axisY * axisX) -  (sine * axisZ);
-        T rvy = (cosTo1 * axisY * axisY) + cosine;
-        T rvz = (cosTo1 * axisY * axisZ) +  (sine * axisX);
-        T rwx = (cosTo1 * axisZ * axisX) +  (sine * axisY);
-        T rwy = (cosTo1 * axisZ * axisY) -  (sine * axisX);
-        T rwz = (cosTo1 * axisZ * axisZ) + cosine;
+        const T rux = (cosTo1 * axisX * axisX) + cosine;
+        const T ruy = (cosTo1 * axisX * axisY) +  (sine * axisZ);
+        const T ruz = (cosTo1 * axisX * axisZ) -  (sine * axisY);
+        const T rvx = (cosTo1 * axisY * axisX) -  (sine * axisZ);
+        const T rvy = (cosTo1 * axisY * axisY) + cosine;
+        const T rvz = (cosTo1 * axisY * axisZ) +  (sine * axisX);
+        const T rwx = (cosTo1 * axisZ * axisX) +  (sine * axisY);
+        const T rwy = (cosTo1 * axisZ * axisY) -  (sine * axisX);
+        const T rwz = (cosTo1 * axisZ * axisZ) + cosine;
 
         b[ 0] = (rux * aux) + (rvx * auy) + (rwx * auz);
         b[ 1] = (ruy * aux) + (rvy * auy) + (rwy * auz);

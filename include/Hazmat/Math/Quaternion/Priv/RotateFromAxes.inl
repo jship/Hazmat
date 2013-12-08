@@ -19,19 +19,28 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_INL
+#define HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_INL
+
+#include <Hazmat/Types/RotateFromMatrix.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <int DIM, typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void RotateFromAxes(const  Quaternion<T>& p
+                    const Vector<DIM, T>& u, // right dir
+                    const Vector<DIM, T>& v, // up dir
+                    const Vector<DIM, T>& w, // view dir
+                           Quaternion<T>& q)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    Matrix<3, T> m;
+
+    m[0] = u[0]; m[3] = v[0]; m[6] = w[0];
+    m[1] = u[1]; m[4] = v[1]; m[7] = w[1];
+    m[2] = u[2]; m[5] = v[2]; m[8] = w[2];
+
+    RotateFromMatrix(p, m, q);
 }
 
 END_HAZMAT_NAMESPACE

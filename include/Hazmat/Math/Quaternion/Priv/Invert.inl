@@ -19,19 +19,31 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_SET_INL
-#define HAZMAT_MATH_QUATERNION_SET_INL
+#ifndef HAZMAT_MATH_QUATERNION_INVERT_INL
+#define HAZMAT_MATH_QUATERNION_INVERT_INL
+
+#include <Hazmat/Math/Quaternion/SquaredLength.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
-template <typename T, typename TX, typename TY, typename TZ, typename TW>
+template <typename T>
 inline
-void Set(TX x, TY y, TZ z, TW w, Quaternion<T>& p)
+void Invert(const Quaternion<T>& p, Quaternion<T>& q)
 {
-    p[X] = static_cast<T>(x);
-    p[Y] = static_cast<T>(y);
-    p[Z] = static_cast<T>(z);
-    p[W] = static_cast<T>(w);
+    T len = SquaredLength(p);
+    
+    if (len == T())
+    {
+        // q is left unchanged if p has 0 length.
+        return;
+    }
+
+    len = static_cast<T>(1) / len;
+
+    q[0] = -len * p[0];
+    q[1] = -len * p[1];
+    q[2] = -len * p[2];
+    q[3] =  len * p[3];
 }
 
 END_HAZMAT_NAMESPACE
