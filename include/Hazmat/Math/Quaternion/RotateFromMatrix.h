@@ -28,7 +28,7 @@
 BEGIN_HAZMAT_NAMESPACE
 
 template <int DIM, typename T>
-void RotateFromMatrix(const  Quaternion<T>& p
+void RotateFromMatrix(const  Quaternion<T>& p,
                       const Matrix<DIM, T>& a,
                              Quaternion<T>& q);
 

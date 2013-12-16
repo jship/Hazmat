@@ -36,10 +36,10 @@ void RotateAboutZ(const Quaternion<T>& p, const T radians,
     const T pz = p[2], qz = std::sin(halfAngleRad);
     const T pw = p[3], qw = std::cos(halfAngleRad);
         
-    r[0] = (qw * px) + (py * qz);
-    r[1] = (qw * py) - (px * qz);
-    r[2] = (pw * qz) + (qw * pz);
-    r[3] = (pw * qw) - (pz * qz);
+    q[0] = (qw * px) + (py * qz);
+    q[1] = (qw * py) - (px * qz);
+    q[2] = (pw * qz) + (qw * pz);
+    q[3] = (pw * qw) - (pz * qz);
 }
 
 END_HAZMAT_NAMESPACE

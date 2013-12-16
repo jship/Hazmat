@@ -22,25 +22,70 @@
 #ifndef HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_INL
 #define HAZMAT_MATH_QUATERNION_ROTATEFROMAXES_INL
 
-#include <Hazmat/Types/RotateFromMatrix.h>
+#include <Hazmat/Math/Quaternion/Norm.h>
+#include <Hazmat/Math/Quaternion/RotateFromMatrix.h>
 
 BEGIN_HAZMAT_NAMESPACE
 
+namespace Priv
+{
+
+template <int DIM, typename T>
+class RotateFromAxes;
+
+template <typename T>
+class RotateFromAxes<3, T>
+{
+public:
+    static void RotateFromAxes(const Quaternion<T>& p,
+                               const  Vector<3, T>& u,
+                               const  Vector<3, T>& v,
+                               const  Vector<3, T>& w,
+                                     Quaternion<T>& q)
+    {
+        Matrix<3, T> m;
+
+        m[0] = u[0]; m[3] = v[0]; m[6] = w[0];
+        m[1] = u[1]; m[4] = v[1]; m[7] = w[1];
+        m[2] = u[2]; m[5] = v[2]; m[8] = w[2];
+
+        RotateFromMatrix(p, m, q);
+        Norm(q, q);
+    }
+};
+
+template <typename T>
+class RotateFromAxes<4, T>
+{
+public:
+    static void RotateFromAxes(const Quaternion<T>& p,
+                               const  Vector<4, T>& u,
+                               const  Vector<4, T>& v,
+                               const  Vector<4, T>& w,
+                                     Quaternion<T>& q)
+    {
+        Matrix<3, T> m;
+
+        m[0] = u[0]; m[3] = v[0]; m[6] = w[0];
+        m[1] = u[1]; m[4] = v[1]; m[7] = w[1];
+        m[2] = u[2]; m[5] = v[2]; m[8] = w[2];
+
+        RotateFromMatrix(p, m, q);
+        Norm(q, q);
+    }
+};
+
+}
+
 template <int DIM, typename T>
 inline
-void RotateFromAxes(const  Quaternion<T>& p
-                    const Vector<DIM, T>& u, // right dir
-                    const Vector<DIM, T>& v, // up dir
-                    const Vector<DIM, T>& w, // view dir
+void RotateFromAxes(const  Quaternion<T>& p,
+                    const Vector<DIM, T>& u,
+                    const Vector<DIM, T>& v,
+                    const Vector<DIM, T>& w,
                            Quaternion<T>& q)
 {
-    Matrix<3, T> m;
-
-    m[0] = u[0]; m[3] = v[0]; m[6] = w[0];
-    m[1] = u[1]; m[4] = v[1]; m[7] = w[1];
-    m[2] = u[2]; m[5] = v[2]; m[8] = w[2];
-
-    RotateFromMatrix(p, m, q);
+    Priv::RotateFromAxes<DIM, T>::compute(p, u, v, w, q);
 }
 
 END_HAZMAT_NAMESPACE

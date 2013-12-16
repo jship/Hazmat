@@ -19,10 +19,68 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#ifndef HAZMAT_MATH_QUATERNION_ROTATEABOUTZ_INL
-#define HAZMAT_MATH_QUATERNION_ROTATEABOUTZ_INL
+#ifndef HAZMAT_MATH_QUATERNION_ROTATEFROMAXISANGLE_INL
+#define HAZMAT_MATH_QUATERNION_ROTATEFROMAXISANGLE_INL
+
+#include <Hazmat/Math/Quaternion/Rotate.h>
 
 BEGIN_HAZMAT_NAMESPACE
+
+namespace Priv
+{
+
+template <int DIM, typename T>
+class RotateFromAxisAngle;
+
+template <typename T>
+class RotateFromAxisAngle<3, T>
+{
+public:
+    static void compute(const  Quaternion<T>& p
+                        const   Vector<3, T>& u,
+                        const             T   radians,
+                               Quaternion<T>& q)
+    {
+        const T halfAngleRad = static_cast<T>(0.5) * radians;
+        const T sine         = std::sin(halfAngleRad);
+        const T cosine       = std::cos(halfAngleRad);
+
+        Quaternion<T> tmp;
+
+        tmp[0] = u[0] * sine;
+        tmp[1] = u[1] * sine;
+        tmp[2] = u[2] * sine;
+        tmp[3] = cosine;
+
+        Rotate(p, tmp, q);
+    }
+};
+
+template <typename T>
+class RotateFromAxisAngle<4, T>
+{
+public:
+    static void compute(const  Quaternion<T>& p
+                        const   Vector<4, T>& u,
+                        const             T   radians,
+                               Quaternion<T>& q)
+    {
+        const T halfAngleRad = static_cast<T>(0.5) * radians;
+        const T sine         = std::sin(halfAngleRad);
+        const T cosine       = std::cos(halfAngleRad);
+
+        Quaternion<T> tmp;
+
+        tmp[0] = u[0] * sine;
+        tmp[1] = u[1] * sine;
+        tmp[2] = u[2] * sine;
+        tmp[3] = cosine;
+
+        Rotate(p, tmp, q);
+    }
+};
+
+}
 
 template <int DIM, typename T>
 inline
@@ -31,14 +89,7 @@ void RotateFromAxisAngle(const  Quaternion<T>& p
                          const             T   radians,
                                 Quaternion<T>& q)
 {
-    const T halfAngleRad = static_cast<T>(0.5) * radians;
-    const T sine         = std::sin(halfAngleRad);
-    const T cosine       = std::cos(halfAngleRad);
-
-    q[0] = -p[0] * sine;
-    q[1] = -p[1] * sine;
-    q[2] = -p[2] * sine;
-    q[3] = cosine;
+    Priv::RotateFromAxisAngle<DIM, T>::compute(p, u, radians, q);
 }
 
 END_HAZMAT_NAMESPACE
